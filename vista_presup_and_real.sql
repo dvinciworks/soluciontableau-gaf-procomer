@@ -70,7 +70,7 @@ AS
                             AND r.cuentacontablecodigo = p.partida
 							AND r.moneda = p.moneda
 							)
-where r.moneda = 'CRC'
+where r.moneda = 'CRC' or r.moneda is null
 union all
 SELECT r.centrocostocodigo, 
           r.cuentacontablecodigo, 
