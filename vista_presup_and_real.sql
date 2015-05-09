@@ -142,5 +142,5 @@ SELECT r.centrocostocodigo,
                             AND r.cuentacontablecodigo = p.partida
 							AND r.moneda = p.moneda
 							)
-where r.moneda = 'USD'
+where r.moneda = 'USD' or r.moneda is null
 )

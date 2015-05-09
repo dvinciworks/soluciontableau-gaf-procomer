@@ -46,7 +46,6 @@ copy /b fichero_gaf_header.csv+fichero_gaf_noheader.csv fichero_gaf.csv
 
 del fichero_gaf_noheader.csv
 del fichero_gaf_header.csv
-del fichero_gaf_out.txt
 ECHO
 
 :theend
