@@ -10,18 +10,31 @@ IF NOT "%1"=="" (
         SET month=%2
         SHIFT
     )
+    IF "%1"=="-t" (
+        SET tipo_cambio=%2
+        SHIFT
+    )
     SHIFT
     GOTO :loop
 )
 
+ECHO Anio = %year%
+ECHO Mes = %month%
+ECHO Tipo Cambio Mes = %tipo_cambio%
+ECHO 
+
+ECHO Cargando tipo de cambio del mes ...
+bcp "exec exactus.dbo.cargar_tipo_cambio %year%, %month%, %tipo_cambio%" queryout fout_tc.txt -c -t , -T -S JIMMYFIGUER7A21\SQLEXPRESS2
+ECHO
+
 ECHO Cargando tabla temporal activos fijos ...
 bcp "exec exactus.dbo.cargar_fichero_activosfijos" queryout fout2.txt -c -t , -T -S JIMMYFIGUER7A21\SQLEXPRESS2
 del fout2.txt
+ECHO
 
-ECHO Anio = %year%
-ECHO Mes = %month%
 ECHO Generando fichero presupuesto...
 del fichero_gaf.csv
+ECHO
 
 ECHO Generando tabla temporal ...
 bcp "exec exactus.dbo.generar_vista_presupuesto %year%, %month%" queryout fout.txt -c -t , -T -S JIMMYFIGUER7A21\SQLEXPRESS2
@@ -34,5 +47,6 @@ copy /b fichero_gaf_header.csv+fichero_gaf_noheader.csv fichero_gaf.csv
 del fichero_gaf_noheader.csv
 del fichero_gaf_header.csv
 del fichero_gaf_out.txt
+ECHO
 
 :theend
