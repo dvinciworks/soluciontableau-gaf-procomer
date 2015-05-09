@@ -15,9 +15,12 @@ as
 
 declare @sql nvarchar(4000)
 
+set @sql='delete from exactus.dbo.jimmy_tipos_cambio where ano='+@year+' and mes='+@month
+--exec(@sql)
+EXEC Sp_executesql @sql; 
+
 set @sql='insert into exactus.dbo.jimmy_tipos_cambio (ano,mes,tipo_cambio) values ('+@year+', '+@month+', '+@tc+')'
 --exec(@sql)
-print @sql
 EXEC Sp_executesql @sql; 
 
 set @sql='select count(*) conteo from exactus.dbo.jimmy_tipos_cambio'
