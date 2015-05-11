@@ -1162,6 +1162,9 @@
           <table-calc ordering-type='Rows' />
         </calculation>
       </column>
+      <column caption='% Dif Real-Presup Convenio Ingresos' datatype='real' name='[% Dif Real-Presup Convenios (copy)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[Real vs Presup Convenios (copy)]/ sum([SMontoPresup convenios (copy)])' scope-isolation='false' />
+      </column>
       <column caption='% Dif Real-Presup Convenios' datatype='real' name='[% Dif Real-Presup Excedentes (copy 2)]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='[Real vs Presup Excedente (copy 2)] / [SMontoPresup Excedentes (copy 2)]' scope-isolation='false' />
       </column>
@@ -1172,6 +1175,11 @@
       </column>
       <column caption='% YoY Gastos' datatype='real' name='[% YoY (copy)]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='[dif YoY (copy)] / [LastYr (copy)]' scope-isolation='false'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='% YoY Convenio ingresos' datatype='real' name='[% YoY Convenios (copy)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[dif YoY Gastos Convenios (copy)] / [LastYr Convenios (copy)]' scope-isolation='false'>
           <table-calc ordering-type='Rows' />
         </calculation>
       </column>
@@ -1226,6 +1234,10 @@
       <column caption='Centro Costo' datatype='string' name='[CENTRO_COSTO]' role='dimension' type='nominal'>
       </column>
       <column caption='Centro Costo Descripcion' datatype='string' name='[CENTRO_COSTO_DESCRIPCION]' role='dimension' type='nominal'>
+        <aliases>
+          <alias key='&quot;Convenio B.I.D. (VUCE Vr 2)&quot;' value='Convenio B.I.D. Gastos' />
+          <alias key='&quot;Convenio II  B.C.I.E&quot;' value='Convenio B.C.I.E. Gastos' />
+        </aliases>
       </column>
       <column caption='Compr Dolar' datatype='real' name='[COMPR_DOLAR]' role='measure' type='quantitative'>
       </column>
@@ -1252,9 +1264,6 @@
         <aliases>
           <alias key='&quot;Excedente (déficit) sin Edificio&quot;' value='Excedente (déficit) Neto' />
         </aliases>
-      </column>
-      <column caption='cero' datatype='integer' name='[Calculation_1030511090645557]' role='measure' type='quantitative'>
-        <calculation class='tableau' formula='0' scope-isolation='false' />
       </column>
       <column caption='Centro Costo Cod' datatype='string' name='[Calculation_1290430140318125]' role='dimension' type='nominal'>
         <calculation class='tableau' formula='// Este cálculo ajusta el código de centro de costos para asignar un rubro del mes de febrero al centro costos 030 VUCE en vezde 000&#10;// de esta forma se ajusta el infográfico al excel del reporte de febrero 2015 que tiene GAF&#10;if [mes_saldo] = 2 and [CuentaContableCodigo] = &apos;205-007-000-000&apos; and [CentroCostoCodigo] = &apos;000-000-000&apos; then &apos;030-001-000&apos;&#10;else [CentroCostoCodigo]&#10;end' scope-isolation='false' />
@@ -1518,6 +1527,11 @@
         </aliases>
       </column>
       <column caption='Centro Costo Codigo' datatype='string' name='[CentroCostoCodigo]' role='dimension' type='nominal'>
+      </column>
+      <column caption='Convenio ingresos % Total  Presup' datatype='real' name='[Convenios % Total  Presup (copy)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='sum([SMontoPresup convenios (copy)]) / total([Total Ingresos Operativos (copy 4)])' scope-isolation='false'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
       </column>
       <column datatype='string' name='[Cuenta Contable (group) 1]' role='dimension' type='nominal'>
         <calculation class='categorical-bin' column='[cuenta_contable]'>
@@ -1807,6 +1821,11 @@
           <table-calc ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
         </calculation>
       </column>
+      <column caption='LastYr Convenio ingresos' datatype='real' name='[LastYr Convenios (copy)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='lookup(sum([Saldo Real Convenios (copy)]),1)' scope-isolation='false'>
+          <table-calc ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
+        </calculation>
+      </column>
       <column caption='LastYr Excedentes sin Edif' datatype='real' name='[LastYr Excedentes (copy 2)]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='lookup([Calculation_1410506105430505],1)' scope-isolation='false'>
           <table-calc ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
@@ -1871,6 +1890,9 @@
       <column caption='Real vs Presup Gastos' datatype='real' name='[Real vs Presup (copy)]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='[Calculation_4250506165306794] - [Saldo Real Gastos Operativos (copy)]' scope-isolation='false' />
       </column>
+      <column caption='Real vs Presup Convenio ingresos' datatype='real' name='[Real vs Presup Convenios (copy)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='sum([Saldo Real Convenios (copy)]) - sum([SMontoPresup convenios (copy)])' scope-isolation='false' />
+      </column>
       <column caption='Real vs Presup Convenios' datatype='real' name='[Real vs Presup Excedente (copy 2)]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='sum([Calculation_2880507143114081]) - [SMontoPresup Excedentes (copy 2)]' scope-isolation='false' />
       </column>
@@ -1883,6 +1905,9 @@
       <column caption='SMontoPresup Excedentes sin Edif' datatype='real' name='[SMontoPresup Excedentes (copy)]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='(sum([Calculation_1390430083101997]) * -1) + sum([Calculation_2370507135936374])' scope-isolation='false' />
       </column>
+      <column caption='SMontoPresup convenio ingresos' datatype='real' name='[SMontoPresup convenios (copy)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='iif([Convenio Ingresos],[Calculation_1390430083101997],0) * -1' scope-isolation='false' />
+      </column>
       <column caption='Saldo Real - Ingresos' datatype='real' name='[Saldo Real (copy)]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='[Calculation_3110430081400501]*-1' scope-isolation='false' />
       </column>
@@ -1891,8 +1916,8 @@
           <table-calc ordering-type='Rows' />
         </calculation>
       </column>
-      <column caption='Saldo Real Convenio Ingresos' datatype='integer' name='[Saldo Real Convenios (copy)]' role='measure' type='quantitative'>
-        <calculation class='tableau' formula='0' scope-isolation='false' />
+      <column caption='Saldo Real Convenio Ingresos' datatype='real' name='[Saldo Real Convenios (copy)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='iif([Convenio Ingresos],[Calculation_3110430081400501],0)' scope-isolation='false' />
       </column>
       <column caption='Presup Gastos Operativos' datatype='real' name='[Saldo Real Gastos Operativos (copy)]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='sum(iif(([Gastos Operativos] and [Rubros Presupuestarios]),[Calculation_1390430083101997],0))*-1' scope-isolation='false' />
@@ -1951,6 +1976,11 @@
       </column>
       <column caption='dif YoY Gastos Excedentes' datatype='real' name='[dif YoY Gastos (copy)]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='zn([Calculation_7390506092302321]) - zn([LastYr (copy 2)])' scope-isolation='false'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='dif YoY Gastos Convenio ingresos' datatype='real' name='[dif YoY Gastos Convenios (copy)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='zn(sum([Saldo Real Convenios (copy)])) - zn([LastYr Convenios (copy)])' scope-isolation='false'>
           <table-calc ordering-type='Rows' />
         </calculation>
       </column>
@@ -2033,6 +2063,12 @@
       </group>
       <group name='[Convenio II B.C.I.E.]' name-style='unqualified' user:ui-builder='lasso-group'>
         <groupfilter function='member' level='[CentroCostoCodigo]' member='&quot;080-005-000&quot;' />
+      </group>
+      <group name='[Convenio Ingresos]' name-style='unqualified' user:ui-builder='lasso-group'>
+        <groupfilter function='union'>
+          <groupfilter function='member' level='[CENTRO_COSTO]' member='&quot;030-025-000&quot;' />
+          <groupfilter function='member' level='[CENTRO_COSTO]' member='&quot;080-005-000&quot;' />
+        </groupfilter>
       </group>
       <group name='[Ganancia (Pérdida)]' name-style='unqualified' user:ui-builder='lasso-group'>
         <groupfilter function='union'>
@@ -2236,6 +2272,7 @@
         <folder-item name='[AGRUPACION_3]' type='field' />
         <folder-item name='[ANO_FECHA]' type='field' />
         <folder-item name='[ANO_MES_FECHA]' type='field' />
+        <folder-item name='[CENTRO_COSTO]' type='field' />
         <folder-item name='[CENTRO_COSTO_DESCRIPCION]' type='field' />
         <folder-item name='[DESCRIPCION]' type='field' />
         <folder-item name='[MES_FECHA]' type='field' />
@@ -2248,7 +2285,6 @@
         <folder-item name='[TRIMESTRE_FECHA]' type='field' />
       </folder>
       <folder name='Real' role='dimensions'>
-        <folder-item name='[CENTRO_COSTO]' type='field' />
         <folder-item name='[Calculation_1290430140318125]' type='field' />
         <folder-item name='[Calculation_2530430081627934]' type='field' />
         <folder-item name='[Calculation_2750430103804228]' type='field' />
@@ -2272,10 +2308,16 @@
         <folder-item name='[header_excedentes_sin_edificios (copy)]' type='field' />
       </folder>
       <folder name='Cálculos Convenio Ingresos' role='measures'>
-        <folder-item name='[Calculation_1030511090645557]' type='field' />
+        <folder-item name='[% Dif Real-Presup Convenios (copy)]' type='field' />
+        <folder-item name='[% YoY Convenios (copy)]' type='field' />
+        <folder-item name='[Convenios % Total  Presup (copy)]' type='field' />
+        <folder-item name='[LastYr Convenios (copy)]' type='field' />
+        <folder-item name='[Real vs Presup Convenios (copy)]' type='field' />
+        <folder-item name='[SMontoPresup convenios (copy)]' type='field' />
         <folder-item name='[Saldo Real Convenios % Total Ingresos (copy)]' type='field' />
         <folder-item name='[Saldo Real Convenios (copy)]' type='field' />
         <folder-item name='[Total Ingresos para convenios (copy)]' type='field' />
+        <folder-item name='[dif YoY Gastos Convenios (copy)]' type='field' />
       </folder>
       <folder name='Cálculos Convenios' role='measures'>
         <folder-item name='[% Dif Real-Presup Excedentes (copy 2)]' type='field' />
@@ -2398,7 +2440,7 @@
         <folder-item name='[REDUCCION_DOLAR]' type='field' />
         <folder-item name='[REDUCCION_LOCAL]' type='field' />
       </folder>
-      <layout dim-ordering='alphabetic' dim-percentage='0.371471' group-percentage='0.0653789' measure-ordering='alphabetic' measure-percentage='0.531946' show-structure='false' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.359584' group-percentage='0.255572' measure-ordering='alphabetic' measure-percentage='0.35364' show-structure='false' />
       <semantic-values>
         <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
       </semantic-values>
@@ -2410,151 +2452,16 @@
         <datasource caption='fichero_gaf' name='textscan.42123.807260648200' />
       </datasources>
       <datasource-dependencies datasource='textscan.42123.807260648200'>
-        <column aggregation='Sum' caption='Ano Saldo' datatype='integer' name='[ano_saldo]' role='dimension' type='ordinal'>
-        </column>
-        <column aggregation='Sum' caption='Mes Saldo' datatype='integer' name='[mes_saldo]' role='dimension' type='ordinal'>
-        </column>
         <column datatype='string' name='[moneda]' role='dimension' type='nominal'>
         </column>
-        <column-instance column='[ano_saldo]' derivation='None' name='[none:ano_saldo:ok]' pivot='key' type='ordinal' />
-        <column-instance column='[mes_saldo]' derivation='None' name='[none:mes_saldo:ok]' pivot='key' type='ordinal' />
         <column-instance column='[moneda]' derivation='None' name='[none:moneda:nk]' pivot='key' type='nominal' />
       </datasource-dependencies>
-      <filter class='categorical' column='[textscan.42123.807260648200].[none:ano_saldo:ok]'>
-        <groupfilter function='level-members' level='[none:ano_saldo:ok]' user:ui-enumeration='all' user:ui-marker='enumerate' />
-      </filter>
-      <filter class='categorical' column='[textscan.42123.807260648200].[none:mes_saldo:ok]'>
-        <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
-          <groupfilter function='member' level='[none:mes_saldo:ok]' member='1' />
-          <groupfilter function='member' level='[none:mes_saldo:ok]' member='2' />
-        </groupfilter>
-      </filter>
       <filter class='categorical' column='[textscan.42123.807260648200].[none:moneda:nk]'>
         <groupfilter function='member' level='[none:moneda:nk]' member='&quot;CRC&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
       </filter>
     </shared-view>
   </shared-views>
   <worksheets>
-    <worksheet name='Convenio BID Gastos'>
-      <layout-options>
-        <title>
-          <formatted-text>
-          </formatted-text>
-        </title>
-      </layout-options>
-      <table>
-        <view>
-          <datasources>
-            <datasource caption='fichero_gaf' name='textscan.42123.807260648200' />
-          </datasources>
-          <datasource-dependencies datasource='textscan.42123.807260648200'>
-            <column caption='cero' datatype='integer' name='[Calculation_1030511090645557]' role='measure' type='quantitative'>
-              <calculation class='tableau' formula='0' scope-isolation='false' />
-            </column>
-            <column caption='Grupo Cuenta Contable Codigo' datatype='string' name='[Calculation_2530430081627934]' role='dimension' type='nominal'>
-              <calculation class='tableau' formula='LEFT([CuentaContableCodigo],3)' scope-isolation='false' />
-            </column>
-            <column caption='Grupo Centro Costo' datatype='string' name='[Calculation_2750430103804228]' role='dimension' type='nominal'>
-              <calculation class='tableau' formula='left([Calculation_1290430140318125],3)' scope-isolation='false' />
-            </column>
-            <column caption='header_convenio_BID' datatype='string' name='[Calculation_8480511090430467]' role='dimension' type='nominal'>
-              <calculation class='tableau' formula='&quot;Convenio B.I.D. Gastos&quot;' scope-isolation='false' />
-            </column>
-            <column caption='Sub Grupo Cta Contable Codigo' datatype='string' name='[Calculation_9190430105019595]' role='dimension' type='nominal'>
-              <calculation class='tableau' formula='left([CuentaContableCodigo],7)' scope-isolation='false' />
-            </column>
-            <column caption='Centro Costo Codigo' datatype='string' name='[CentroCostoCodigo]' role='dimension' type='nominal'>
-            </column>
-            <column caption='Cuenta Contable Codigo' datatype='string' name='[CuentaContableCodigo]' role='dimension' type='nominal'>
-            </column>
-            <column aggregation='Sum' caption='Ano Saldo' datatype='integer' name='[ano_saldo]' role='dimension' type='ordinal'>
-            </column>
-            <column aggregation='Sum' caption='Mes Saldo' datatype='integer' name='[mes_saldo]' role='dimension' type='ordinal'>
-            </column>
-            <column datatype='string' name='[moneda]' role='dimension' type='nominal'>
-            </column>
-            <column-instance column='[Calculation_2530430081627934]' derivation='None' name='[none:Calculation_2530430081627934:nk]' pivot='key' type='nominal' />
-            <column-instance column='[Calculation_2750430103804228]' derivation='None' name='[none:Calculation_2750430103804228:nk]' pivot='key' type='nominal' />
-            <column-instance column='[Calculation_8480511090430467]' derivation='None' name='[none:Calculation_8480511090430467:nk]' pivot='key' type='nominal' />
-            <column-instance column='[Calculation_9190430105019595]' derivation='None' name='[none:Calculation_9190430105019595:nk]' pivot='key' type='nominal' />
-            <column-instance column='[CentroCostoCodigo]' derivation='None' name='[none:CentroCostoCodigo:nk]' pivot='key' type='nominal' />
-            <column-instance column='[CuentaContableCodigo]' derivation='None' name='[none:CuentaContableCodigo:nk]' pivot='key' type='nominal' />
-            <column-instance column='[ano_saldo]' derivation='None' name='[none:ano_saldo:ok]' pivot='key' type='ordinal' />
-            <column-instance column='[mes_saldo]' derivation='None' name='[none:mes_saldo:ok]' pivot='key' type='ordinal' />
-            <column-instance column='[moneda]' derivation='None' name='[none:moneda:nk]' pivot='key' type='nominal' />
-            <column-instance column='[Calculation_1030511090645557]' derivation='Sum' name='[sum:Calculation_1030511090645557:qk]' pivot='key' type='quantitative' />
-          </datasource-dependencies>
-          <filter class='categorical' column='[textscan.42123.807260648200].[none:Calculation_2530430081627934:nk]'>
-            <groupfilter function='level-members' level='[none:Calculation_2530430081627934:nk]' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-manual-selection-is-empty='true' user:ui-marker='enumerate' />
-          </filter>
-          <filter class='categorical' column='[textscan.42123.807260648200].[none:Calculation_2750430103804228:nk]'>
-            <groupfilter function='level-members' level='[none:Calculation_2750430103804228:nk]' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-manual-selection-is-empty='true' user:ui-marker='enumerate' />
-          </filter>
-          <filter class='categorical' column='[textscan.42123.807260648200].[none:Calculation_9190430105019595:nk]'>
-            <groupfilter function='level-members' level='[none:Calculation_9190430105019595:nk]' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-manual-selection-is-empty='true' user:ui-marker='enumerate' />
-          </filter>
-          <filter class='categorical' column='[textscan.42123.807260648200].[none:CentroCostoCodigo:nk]'>
-            <groupfilter function='level-members' level='[none:CentroCostoCodigo:nk]' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-manual-selection-is-empty='true' user:ui-marker='enumerate' />
-          </filter>
-          <filter class='categorical' column='[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]'>
-            <groupfilter function='level-members' level='[none:CuentaContableCodigo:nk]' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-manual-selection-is-empty='true' user:ui-marker='enumerate' />
-          </filter>
-          <sort class='natural' column='[textscan.42123.807260648200].[none:ano_saldo:ok]' direction='DESC' />
-          <slices>
-            <column>[textscan.42123.807260648200].[none:CentroCostoCodigo:nk]</column>
-            <column>[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]</column>
-            <column>[textscan.42123.807260648200].[none:ano_saldo:ok]</column>
-            <column>[textscan.42123.807260648200].[none:mes_saldo:ok]</column>
-            <column>[textscan.42123.807260648200].[none:Calculation_2530430081627934:nk]</column>
-            <column>[textscan.42123.807260648200].[none:Calculation_2750430103804228:nk]</column>
-            <column>[textscan.42123.807260648200].[none:Calculation_9190430105019595:nk]</column>
-            <column>[textscan.42123.807260648200].[none:moneda:nk]</column>
-          </slices>
-          <aggregation value='true' />
-        </view>
-        <style>
-          <style-rule element='cell'>
-            <format attr='width' field='[textscan.42123.807260648200].[none:ano_saldo:ok]' value='5' />
-            <format attr='color' field='[textscan.42123.807260648200].[sum:Calculation_1030511090645557:qk]' value='#ffffff' />
-          </style-rule>
-          <style-rule element='header'>
-            <format attr='width' field='[textscan.42123.807260648200].[none:CentroCostoCodigo:nk]' value='124' />
-            <format attr='width' field='[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]' value='136' />
-            <format attr='width' field='[textscan.42123.807260648200].[none:Calculation_8480511090430467:nk]' value='212' />
-          </style-rule>
-          <style-rule element='label'>
-            <format attr='display' field='[textscan.42123.807260648200].[none:ano_saldo:ok]' value='false' />
-            <format attr='font-weight' field='[textscan.42123.807260648200].[none:Calculation_8480511090430467:nk]' value='normal' />
-          </style-rule>
-          <style-rule element='worksheet'>
-            <format attr='display-field-labels' scope='rows' value='false' />
-            <format attr='display-field-labels' scope='cols' value='false' />
-          </style-rule>
-        </style>
-        <panes>
-          <pane>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <encodings>
-              <text column='[textscan.42123.807260648200].[sum:Calculation_1030511090645557:qk]' />
-            </encodings>
-            <style>
-              <style-rule element='mark'>
-                <format attr='mark-labels-show' value='true' />
-              </style-rule>
-              <style-rule element='pane'>
-                <format attr='minwidth' value='-1' />
-                <format attr='maxwidth' value='-1' />
-              </style-rule>
-            </style>
-          </pane>
-        </panes>
-        <rows>[textscan.42123.807260648200].[none:Calculation_8480511090430467:nk]</rows>
-        <cols>[textscan.42123.807260648200].[none:ano_saldo:ok]</cols>
-      </table>
-    </worksheet>
     <worksheet name='Convenio COMEX-CINDE-PROCOMER'>
       <layout-options>
         <title>
@@ -2758,17 +2665,29 @@
           <filter class='categorical' column='[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]'>
             <groupfilter function='level-members' level='[none:CuentaContableCodigo:nk]' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-manual-selection-is-empty='true' user:ui-marker='enumerate' />
           </filter>
+          <filter class='categorical' column='[textscan.42123.807260648200].[none:ano_saldo:ok]' filter-group='3'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:ano_saldo:ok]' member='2014' />
+              <groupfilter function='member' level='[none:ano_saldo:ok]' member='2015' />
+            </groupfilter>
+          </filter>
           <sort class='natural' column='[textscan.42123.807260648200].[none:ano_saldo:ok]' direction='DESC' />
+          <filter class='categorical' column='[textscan.42123.807260648200].[none:mes_saldo:ok]' filter-group='4'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:mes_saldo:ok]' member='1' />
+              <groupfilter function='member' level='[none:mes_saldo:ok]' member='2' />
+            </groupfilter>
+          </filter>
           <slices>
             <column>[textscan.42123.807260648200].[none:CentroCostoCodigo:nk]</column>
             <column>[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]</column>
-            <column>[textscan.42123.807260648200].[none:ano_saldo:ok]</column>
-            <column>[textscan.42123.807260648200].[none:mes_saldo:ok]</column>
             <column>[textscan.42123.807260648200].[none:Calculation_2530430081627934:nk]</column>
             <column>[textscan.42123.807260648200].[none:Calculation_2750430103804228:nk]</column>
             <column>[textscan.42123.807260648200].[none:Calculation_9190430105019595:nk]</column>
             <column>[textscan.42123.807260648200].[:Measure Names]</column>
             <column>[textscan.42123.807260648200].[none:moneda:nk]</column>
+            <column>[textscan.42123.807260648200].[none:ano_saldo:ok]</column>
+            <column>[textscan.42123.807260648200].[none:mes_saldo:ok]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -2834,6 +2753,24 @@
             <datasource caption='fichero_gaf' name='textscan.42123.807260648200' />
           </datasources>
           <datasource-dependencies datasource='textscan.42123.807260648200'>
+            <column caption='% Dif Real-Presup Convenio Ingresos' datatype='real' name='[% Dif Real-Presup Convenios (copy)]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[Real vs Presup Convenios (copy)]/ sum([SMontoPresup convenios (copy)])' scope-isolation='false' />
+            </column>
+            <column caption='% YoY Convenio ingresos' datatype='real' name='[% YoY Convenios (copy)]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[dif YoY Gastos Convenios (copy)] / [LastYr Convenios (copy)]' scope-isolation='false'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column aggregation='Sum' caption='Ano Fecha' datatype='integer' name='[ANO_FECHA]' role='dimension' type='ordinal'>
+            </column>
+            <column caption='Centro Costo' datatype='string' name='[CENTRO_COSTO]' role='dimension' type='nominal'>
+            </column>
+            <column caption='Centro Costo Descripcion' datatype='string' name='[CENTRO_COSTO_DESCRIPCION]' role='dimension' type='nominal'>
+              <aliases>
+                <alias key='&quot;Convenio B.I.D. (VUCE Vr 2)&quot;' value='Convenio B.I.D. Gastos' />
+                <alias key='&quot;Convenio II  B.C.I.E&quot;' value='Convenio B.C.I.E. Gastos' />
+              </aliases>
+            </column>
             <column caption='Grupo Cuenta Contable Codigo' datatype='string' name='[Calculation_2530430081627934]' role='dimension' type='nominal'>
               <calculation class='tableau' formula='LEFT([CuentaContableCodigo],3)' scope-isolation='false' />
             </column>
@@ -2845,30 +2782,356 @@
             </column>
             <column caption='Centro Costo Codigo' datatype='string' name='[CentroCostoCodigo]' role='dimension' type='nominal'>
             </column>
+            <column caption='Convenio ingresos % Total  Presup' datatype='real' name='[Convenios % Total  Presup (copy)]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='sum([SMontoPresup convenios (copy)]) / total([Total Ingresos Operativos (copy 4)])' scope-isolation='false'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
             <column caption='Cuenta Contable Codigo' datatype='string' name='[CuentaContableCodigo]' role='dimension' type='nominal'>
             </column>
-            <column caption='Saldo Real Convenio Ingresos' datatype='integer' name='[Saldo Real Convenios (copy)]' role='measure' type='quantitative'>
-              <calculation class='tableau' formula='0' scope-isolation='false' />
+            <column aggregation='Sum' caption='Mes Fecha' datatype='integer' name='[MES_FECHA]' role='dimension' type='ordinal'>
+            </column>
+            <column caption='Real vs Presup Convenio ingresos' datatype='real' name='[Real vs Presup Convenios (copy)]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='sum([Saldo Real Convenios (copy)]) - sum([SMontoPresup convenios (copy)])' scope-isolation='false' />
+            </column>
+            <column caption='SMontoPresup convenio ingresos' datatype='real' name='[SMontoPresup convenios (copy)]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='iif([Convenio Ingresos],[Calculation_1390430083101997],0) * -1' scope-isolation='false' />
+            </column>
+            <column caption='Saldo Real Convenio Ingresos % Total Ingresos' datatype='real' name='[Saldo Real Convenios % Total Ingresos (copy)]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='sum([Saldo Real Convenios (copy)]) / [Total Ingresos para convenios (copy)]' scope-isolation='false'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Saldo Real Convenio Ingresos' datatype='real' name='[Saldo Real Convenios (copy)]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='iif([Convenio Ingresos],[Calculation_3110430081400501],0)' scope-isolation='false' />
             </column>
             <column aggregation='Sum' caption='Ano Saldo' datatype='integer' name='[ano_saldo]' role='dimension' type='ordinal'>
             </column>
-            <column caption='Centro Costo Desc' datatype='string' name='[centro_costo_desc]' role='dimension' type='nominal'>
-            </column>
-            <column aggregation='Sum' caption='Mes Saldo' datatype='integer' name='[mes_saldo]' role='dimension' type='ordinal'>
+            <column caption='dif YoY Gastos Convenio ingresos' datatype='real' name='[dif YoY Gastos Convenios (copy)]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='zn(sum([Saldo Real Convenios (copy)])) - zn([LastYr Convenios (copy)])' scope-isolation='false'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
             </column>
             <column datatype='string' name='[moneda]' role='dimension' type='nominal'>
             </column>
+            <column-instance column='[ANO_FECHA]' derivation='None' name='[none:ANO_FECHA:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[CENTRO_COSTO]' derivation='None' name='[none:CENTRO_COSTO:nk]' pivot='key' type='nominal' />
+            <column-instance column='[CENTRO_COSTO_DESCRIPCION]' derivation='None' name='[none:CENTRO_COSTO_DESCRIPCION:nk]' pivot='key' type='nominal' />
             <column-instance column='[Calculation_2530430081627934]' derivation='None' name='[none:Calculation_2530430081627934:nk]' pivot='key' type='nominal' />
             <column-instance column='[Calculation_2750430103804228]' derivation='None' name='[none:Calculation_2750430103804228:nk]' pivot='key' type='nominal' />
             <column-instance column='[Calculation_9190430105019595]' derivation='None' name='[none:Calculation_9190430105019595:nk]' pivot='key' type='nominal' />
             <column-instance column='[CentroCostoCodigo]' derivation='None' name='[none:CentroCostoCodigo:nk]' pivot='key' type='nominal' />
             <column-instance column='[CuentaContableCodigo]' derivation='None' name='[none:CuentaContableCodigo:nk]' pivot='key' type='nominal' />
-            <column-instance column='[ano_saldo]' derivation='None' name='[none:ano_saldo:ok]' pivot='key' type='ordinal' />
-            <column-instance column='[centro_costo_desc]' derivation='None' name='[none:centro_costo_desc:nk]' pivot='key' type='nominal' />
-            <column-instance column='[mes_saldo]' derivation='None' name='[none:mes_saldo:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[MES_FECHA]' derivation='None' name='[none:MES_FECHA:ok]' pivot='key' type='ordinal' />
             <column-instance column='[moneda]' derivation='None' name='[none:moneda:nk]' pivot='key' type='nominal' />
+            <column-instance column='[SMontoPresup convenios (copy)]' derivation='Sum' name='[sum:SMontoPresup convenios (copy):qk]' pivot='key' type='quantitative' />
             <column-instance column='[Saldo Real Convenios (copy)]' derivation='Sum' name='[sum:Saldo Real Convenios (copy):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[% Dif Real-Presup Convenios (copy)]' derivation='User' name='[usr:% Dif Real-Presup Convenios (copy):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[% YoY Convenios (copy)]' derivation='User' name='[usr:% YoY Convenios (copy):qk:2]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Columns' />
+              <table-calc field='[textscan.42123.807260648200].[LastYr Convenios (copy)]' ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
+              <table-calc field='[textscan.42123.807260648200].[dif YoY Gastos Convenios (copy)]' ordering-field='[textscan.42123.807260648200].[ANO_FECHA]' ordering-type='Field' />
+            </column-instance>
+            <column-instance column='[% YoY Convenios (copy)]' derivation='User' name='[usr:% YoY Convenios (copy):qk:4]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[textscan.42123.807260648200].[ANO_FECHA]' ordering-type='Field' />
+              <table-calc field='[textscan.42123.807260648200].[dif YoY Gastos Convenios (copy)]' ordering-field='[textscan.42123.807260648200].[ANO_FECHA]' ordering-type='Field' />
+              <table-calc field='[textscan.42123.807260648200].[LastYr Convenios (copy)]' ordering-field='[textscan.42123.807260648200].[ANO_FECHA]' ordering-type='Field' />
+            </column-instance>
+            <column-instance column='[Convenios % Total  Presup (copy)]' derivation='User' name='[usr:Convenios % Total  Presup (copy):qk:7]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Columns' />
+            </column-instance>
+            <column-instance column='[Real vs Presup Convenios (copy)]' derivation='User' name='[usr:Real vs Presup Convenios (copy):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Saldo Real Convenios % Total Ingresos (copy)]' derivation='User' name='[usr:Saldo Real Convenios % Total Ingresos (copy):qk:2]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Columns' />
+              <table-calc field='[textscan.42123.807260648200].[Total Ingresos para convenios (copy)]' ordering-type='Columns' />
+            </column-instance>
+            <column-instance column='[dif YoY Gastos Convenios (copy)]' derivation='User' name='[usr:dif YoY Gastos Convenios (copy):qk:4]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[textscan.42123.807260648200].[ANO_FECHA]' ordering-type='Field' />
+              <table-calc field='[textscan.42123.807260648200].[LastYr Convenios (copy)]' ordering-field='[textscan.42123.807260648200].[ANO_FECHA]' ordering-type='Field' />
+            </column-instance>
           </datasource-dependencies>
+          <filter class='categorical' column='[textscan.42123.807260648200].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[textscan.42123.807260648200].[sum:Saldo Real Convenios (copy):qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[textscan.42123.807260648200].[usr:Saldo Real Convenios \% Total Ingresos (copy):qk:2]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[textscan.42123.807260648200].[sum:SMontoPresup convenios (copy):qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[textscan.42123.807260648200].[usr:Convenios \% Total  Presup (copy):qk:7]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[textscan.42123.807260648200].[usr:Real vs Presup Convenios (copy):qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[textscan.42123.807260648200].[usr:\% Dif Real-Presup Convenios (copy):qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[textscan.42123.807260648200].[usr:dif YoY Gastos Convenios (copy):qk:4]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[textscan.42123.807260648200].[usr:\% YoY Convenios (copy):qk:4]&quot;' />
+            </groupfilter>
+          </filter>
+          <sort class='manual' column='[textscan.42123.807260648200].[:Measure Names]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;[textscan.42123.807260648200].[sum:Saldo Real Convenios (copy):qk]&quot;</bucket>
+              <bucket>&quot;[textscan.42123.807260648200].[usr:Saldo Real Convenios \% Total Ingresos (copy):qk:2]&quot;</bucket>
+              <bucket>&quot;[textscan.42123.807260648200].[sum:SMontoPresup convenios (copy):qk]&quot;</bucket>
+              <bucket>&quot;[textscan.42123.807260648200].[usr:Convenios \% Total  Presup (copy):qk:7]&quot;</bucket>
+              <bucket>&quot;[textscan.42123.807260648200].[usr:Real vs Presup Convenios (copy):qk]&quot;</bucket>
+              <bucket>&quot;[textscan.42123.807260648200].[usr:\% Dif Real-Presup Convenios (copy):qk]&quot;</bucket>
+              <bucket>&quot;[textscan.42123.807260648200].[usr:dif YoY Gastos Convenios (copy):qk:4]&quot;</bucket>
+              <bucket>&quot;[textscan.42123.807260648200].[usr:\% YoY Convenios (copy):qk:2]&quot;</bucket>
+            </dictionary>
+          </sort>
+          <filter class='categorical' column='[textscan.42123.807260648200].[none:ANO_FECHA:ok]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:ANO_FECHA:ok]' member='2014' />
+              <groupfilter function='member' level='[none:ANO_FECHA:ok]' member='2015' />
+            </groupfilter>
+          </filter>
+          <sort class='natural' column='[textscan.42123.807260648200].[none:ANO_FECHA:ok]' direction='DESC' />
+          <filter class='categorical' column='[textscan.42123.807260648200].[none:CENTRO_COSTO:nk]'>
+            <groupfilter function='level-members' level='[none:CENTRO_COSTO:nk]' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-manual-selection-is-empty='true' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[textscan.42123.807260648200].[none:CENTRO_COSTO_DESCRIPCION:nk]' kind='hide'>
+            <groupfilter function='except' user:ui-domain='relevant' user:ui-enumeration='exclusive' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' />
+              <groupfilter function='union'>
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='%null%' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Aceleramiento Empresarial&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Actividades de Divulgaci¢n&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Administrativa Financiera&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Agendas de Negocios General&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;ARP Caribe&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;ARP Chile&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;ARP China&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;ARP USA&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Auditoria Externa&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Auditoria Interna&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;CACEX&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Capacitaci¢n Especializada&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Catalogos Promoci¢n Sectoriales&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;COMEX  PROCOMER Bruselas&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;COMEX - PROCOMER&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;COMEX-PROCOMER Paris&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;COMEX-PROCOMER Washington&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Congreso Innovaci¢n para Internacionalizaci¢n Pyme&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Congreso M‚dico&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Congreso Nacional de Mango&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Congreso Sectorial Software&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Congreso Sostenible Ambiental&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Consorcio Cafetalero&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Consorcio de Artesan¡as&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Consorcio de Empaques&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Consorcio de Metalurgia&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Consorcio Flavors Costa Rica&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Consorcio Industria Alimentaria&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Consorcio Meloneros&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Consorcio Plantas Flores y Follajes&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Consorcio Productos Org nicos&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Consorcio TIC&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Convenio CINDE&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Convenio I  B.C.I.E.&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Costa Rica Investment World&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Costa Rica Specialties&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;CR Verde y Saludable Europa&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Creando Exportadores Agr¡cola&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Creando Exportadores Alimentaria Grl&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Creando Exportadores General&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Creando Exportadores Industrial&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Creando Exportadores Software&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Creando Exportadores Turismo M‚dico&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Cumbre China&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;D¡a del Exportador (CADEXCO)&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;D¡a Verde y Sostenible&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Direcci¢n Inteligencia Comercial&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Direcci¢n Legal&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Directorio de Exportadores&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Doing Business Caribe&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Encadenamientos para la Exportaci¢n&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Energy Conference - Trinidad&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Estadio Nacional CR- China&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Evento Expo Shangai&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Expo Manuel Antonio&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Export Target New York&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Export Target Validaci¢n Mercado Automotriz&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Expotoons&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Feria Anuga&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Feria Apparel Sourcing Show&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Feria Biofac Alemania&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Feria Europa del Este (Dise¤o&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Feria Expoartesan¡as&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Feria Expocomer&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Feria ExpoIndustrias CICR&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Feria Fancy Food Show N.Y&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Feria Florexpo&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Feria Fruit Logistica&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Feria IPM&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Feria Jamaica Expo&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Feria Lim¢n Verde&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Feria Miami Aerospace Show&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Feria PLMA (Chicago)&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Feria PMA - Fresh Summit&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Feria PROFLORA&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Feria Rec. Hum. SHRM&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Feria Regional Talamanca&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Feria Sial Par¡s&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Feria SIAL Par¡s Francia&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Feria Sigraph&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Feria Texas State&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Feria TIC Trinidad &amp;amp;amp;amp; Tobago&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Foro de Outsourcing Colombia&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Foro del Sector C rnico&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Foro Regional Zona Sur&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Georeferenciaci¢n Empresarial RHN&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Gerencia de Comunicaci¢n&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Gerencia General&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Gesti¢n de Procesos&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Gesti¢n Humana&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Guanacaste Forestal&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Impulsaci¢n Puerto Rico Alimentario&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Inauguraci¢n Oficina Per£&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Incubadora PYMES Ciudad Puerto&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Inform tica&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Investigaci¢n de Mercados&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Investigaci¢n Economica y Estadisticas&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Key Player Europa&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Kid Screen&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Kioscos de Promoci¢n&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;La Decisi¢n de Exportar&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Macrorueda Liberia&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Macrorueda San Carlos&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Mapeo Producto Fresco Regi¢n Brunca&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Marca Pa¡s&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Aeron utica USA&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Austin Alliance&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Automotriz&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Biofach&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Canad  Sial Montreal&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Chile Agricola&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Chile Alimentos&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n China Ind Alimentaria&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Colombia  C.R Verde y Saludable&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Comercial a Espa¤a&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Comercial Aruba y Curacao&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Compradores&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Corea Multisectorial&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Dominicana Metalmecanica&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Europa (Ronda Negocios)&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Expoalimento Quimico Farm.&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Expoalimentos&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Export Target NY&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Exportadores Caribe TIC&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Familiarizaci¢n Alemania&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Game Connetion&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n HORTIFAIR&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Houston Cluster M‚dico&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Houston Texas HEB&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Indiasoft&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Industrial Rep£blica Dominicana&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Inglaterra Agr¡cola&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Jamaica&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n M‚xico Agroindustrial&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n M‚xico Alimentos&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n M‚xico: Cost Chedr Comer Mexicana&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Miami Agroindustrial&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Multisector Costa Rica-Nicaragua&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Multisectorial Chile&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Multisectorial Nicaragua&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Nicaragua (Alimentario)&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Nicaragua construcci¢n&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Nicaragua-Honduras&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Panam &quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Panam  Agroindustria&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Panam  Alimentos&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Panam  Cons - Metalmecanica&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Panam  Ing. y Arquitectura&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Panam  MultiSectorial&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Per£&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n PLMA&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n productos limpieza cuidado personal&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Puerto Rico&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Rep. Dominicana Agroindustrial&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Road Show Miami - New York&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Servicios China&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Sial Par¡s&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n T&amp;amp;amp;amp;T TIC&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n TIC Guatemala&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n TIC New York&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n TIC Rep£blica Dominicana&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Toronto y Montreal Agr¡cola&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Toronto y Montreal Alimentaria&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n transfronteriza Panam -C.R&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n Trinidad y Tobago&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n U.S.A New York&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Misi¢n USA Houston&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Msi¢n Panam  MultiSectorial&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Nuevo Edificio&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Oficina Regional Liberia&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Oficina Regional Lim¢n&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Oficina Regional P‚rez Zeled¢n&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Oficina Regional Puntarenas&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Oficina Regional San Carlos&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;OPC Alemania&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;OPC Canad &quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;OPC Centroamerica&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;OPC Chile&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;OPC China&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;OPC Colombia&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;OPC El Salvador&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;OPC Guatemala&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;OPC Houston&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;OPC Inglaterra&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;OPC Los Angeles&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;OPC M‚xico&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;OPC Miami&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;OPC New York&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;OPC Panam &quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;OPC Per£&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;OPC Puerto Rico&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;OPC Rep£blica Dominicana&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;OPC Trinidad Y Tobago&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Open House Earth&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Open House Sabores de Costa Rica&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Open House-Sector Pi¤ero&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;PIM Agr¡cola&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;PIVA - Lim¢n&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;PIVA - P‚rez Zeled¢n&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;PIVA - San Carlos&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;PIVA Liberia&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;PROCOMER&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Programa Sector Melonero&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Promoci¢n Comercial&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Promoci¢n de Estudios de Mercado&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Promoci¢n de Inversi¢n&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Proy. Taller Adap. Prod. PYMES&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Proyecto Frutales y Vegetales Brunca&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Proyecto Industriali. de Fruta Tropical&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Proyecto Innovaci¢n&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Proyecto KEHE&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Proyecto Modernizaci¢n TLC Canad &quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Proyecto Pe¤as Blancas&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Proyectos Promoci¢n Comercial&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Reg¡menes Especiales&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Representaci¢n Comercial Singapur&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Road Show Argentina-Uruguay Multisecto&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Road Show Guatemala-El Salvador&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Road Show Inversiones&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Road Show Miami Tampa Orlando&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Semi Conoci Merca Aeronautica Miami&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Semi Taller Country Spotlight Workshop&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Seminario Con. Mercado China&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Seminario Conociendo el Mercado.&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Seminario de Control de Plagas&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Seminarios Con Mercado Canad &quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;SIVUCE&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Taller Adaptaci¢n Prod Fresco Miami&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Taller Cadenas de Valor EE.UU&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Taller Industria F¡lmica&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Taller Validaci¢n de Muebles&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Training Webinar&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Turismo Sostenible y Servicios M‚dicos&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;V.U.C.E&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Ventanilla Aeropuerto&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Ventanilla Lim¢n&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Ventanilla Paso Canoas&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Ventanilla Pe¤as Blancas&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Ventanilla Puerto Caldera&quot;' />
+                <groupfilter function='member' level='[none:CENTRO_COSTO_DESCRIPCION:nk]' member='&quot;Videoconferecnias ASIA&quot;' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
           <filter class='categorical' column='[textscan.42123.807260648200].[none:Calculation_2530430081627934:nk]'>
             <groupfilter function='level-members' level='[none:Calculation_2530430081627934:nk]' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-manual-selection-is-empty='true' user:ui-marker='enumerate' />
           </filter>
@@ -2879,85 +3142,52 @@
             <groupfilter function='level-members' level='[none:Calculation_9190430105019595:nk]' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-manual-selection-is-empty='true' user:ui-marker='enumerate' />
           </filter>
           <filter class='categorical' column='[textscan.42123.807260648200].[none:CentroCostoCodigo:nk]'>
-            <groupfilter function='except' user:ui-domain='relevant' user:ui-enumeration='exclusive' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-marker='enumerate'>
-              <groupfilter function='level-members' level='[none:CentroCostoCodigo:nk]' />
-              <groupfilter function='union'>
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;000-000-000&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;001-001-000&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;001-003-000&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;001-004-000&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;001-006-000&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;001-009-000&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;001-011-000&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;010-001-000&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;010-002-000&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;010-010-000&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;030-001-000&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;040-001-000&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;040-002-001&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;040-002-002&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;040-002-003&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;040-002-004&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;040-002-005&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;040-002-007&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;040-002-009&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;040-002-010&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;040-002-012&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;040-002-013&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;040-002-016&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;040-002-017&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;040-002-018&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;040-004-107&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;040-005-001&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;040-021-001&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;040-021-002&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;040-021-003&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;040-021-004&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;040-021-006&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;040-099-001&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;050-001-000&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;050-002-000&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;050-020-000&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;060-001-000&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;070-001-000&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;080-001-000&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;080-002-000&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;080-004-000&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;080-006-000&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;080-020-000&quot;' />
-                <groupfilter function='member' level='[none:CentroCostoCodigo:nk]' member='&quot;095-001-000&quot;' />
-              </groupfilter>
-            </groupfilter>
+            <groupfilter function='level-members' level='[none:CentroCostoCodigo:nk]' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-manual-selection-is-empty='true' user:ui-marker='enumerate' />
           </filter>
           <filter class='categorical' column='[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]'>
             <groupfilter function='level-members' level='[none:CuentaContableCodigo:nk]' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-manual-selection-is-empty='true' user:ui-marker='enumerate' />
           </filter>
-          <sort class='natural' column='[textscan.42123.807260648200].[none:ano_saldo:ok]' direction='DESC' />
+          <filter class='categorical' column='[textscan.42123.807260648200].[none:MES_FECHA:ok]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:MES_FECHA:ok]' member='%null%' />
+              <groupfilter function='member' level='[none:MES_FECHA:ok]' member='1' />
+              <groupfilter function='member' level='[none:MES_FECHA:ok]' member='2' />
+            </groupfilter>
+          </filter>
           <slices>
             <column>[textscan.42123.807260648200].[none:CentroCostoCodigo:nk]</column>
             <column>[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]</column>
-            <column>[textscan.42123.807260648200].[none:ano_saldo:ok]</column>
-            <column>[textscan.42123.807260648200].[none:mes_saldo:ok]</column>
             <column>[textscan.42123.807260648200].[none:Calculation_2530430081627934:nk]</column>
             <column>[textscan.42123.807260648200].[none:Calculation_2750430103804228:nk]</column>
             <column>[textscan.42123.807260648200].[none:Calculation_9190430105019595:nk]</column>
             <column>[textscan.42123.807260648200].[none:moneda:nk]</column>
+            <column>[textscan.42123.807260648200].[none:MES_FECHA:ok]</column>
+            <column>[textscan.42123.807260648200].[none:ANO_FECHA:ok]</column>
+            <column>[textscan.42123.807260648200].[none:CENTRO_COSTO:nk]</column>
+            <column>[textscan.42123.807260648200].[:Measure Names]</column>
           </slices>
           <aggregation value='true' />
         </view>
         <style>
           <style-rule element='cell'>
-            <format attr='width' field='[textscan.42123.807260648200].[none:ano_saldo:ok]' value='30' />
+            <format attr='text-format' field='[textscan.42123.807260648200].[Multiple Values]' value='*#,##0,;(#,##0,)' />
+            <format attr='text-format' field='[textscan.42123.807260648200].[usr:Saldo Real Convenios % Total Ingresos (copy):qk:2]' value='p0%' />
             <format attr='color' field='[textscan.42123.807260648200].[sum:Saldo Real Convenios (copy):qk]' value='#ffffff' />
+            <format attr='text-format' field='[textscan.42123.807260648200].[usr:Convenios % Total  Presup (copy):qk:7]' value='p0%' />
+            <format attr='text-format' field='[textscan.42123.807260648200].[usr:% Dif Real-Presup Convenios (copy):qk]' value='p0%' />
+            <format attr='text-format' field='[textscan.42123.807260648200].[usr:% YoY Convenios (copy):qk:4]' value='p0%' />
           </style-rule>
           <style-rule element='header'>
             <format attr='width' field='[textscan.42123.807260648200].[none:CentroCostoCodigo:nk]' value='124' />
             <format attr='width' field='[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]' value='136' />
-            <format attr='width' field='[textscan.42123.807260648200].[none:centro_costo_desc:nk]' value='180' />
+            <format attr='width' field='[textscan.42123.807260648200].[none:CENTRO_COSTO_DESCRIPCION:nk]' value='212' />
+            <format attr='total-label' data-class='total' field='[textscan.42123.807260648200].[none:CENTRO_COSTO_DESCRIPCION:nk]' value='Convenios Ingresos' />
+            <format attr='font-weight' data-class='total' field='[textscan.42123.807260648200].[none:CENTRO_COSTO_DESCRIPCION:nk]' value='normal' />
           </style-rule>
           <style-rule element='label'>
-            <format attr='display' field='[textscan.42123.807260648200].[none:ano_saldo:ok]' value='false' />
-            <format attr='font-weight' field='[textscan.42123.807260648200].[none:centro_costo_desc:nk]' value='normal' />
+            <format attr='display' field='[textscan.42123.807260648200].[:Measure Names]' value='false' />
+            <format attr='font-weight' field='[textscan.42123.807260648200].[none:CENTRO_COSTO_DESCRIPCION:nk]' value='normal' />
+            <format attr='display' field='[textscan.42123.807260648200].[none:ANO_FECHA:ok]' value='false' />
           </style-rule>
           <style-rule element='worksheet'>
             <format attr='display-field-labels' scope='rows' value='false' />
@@ -2971,7 +3201,7 @@
             </view>
             <mark class='Automatic' />
             <encodings>
-              <text column='[textscan.42123.807260648200].[sum:Saldo Real Convenios (copy):qk]' />
+              <text column='[textscan.42123.807260648200].[Multiple Values]' />
             </encodings>
             <style>
               <style-rule element='mark'>
@@ -2984,8 +3214,8 @@
             </style>
           </pane>
         </panes>
-        <rows>[textscan.42123.807260648200].[none:centro_costo_desc:nk]</rows>
-        <cols>[textscan.42123.807260648200].[none:ano_saldo:ok]</cols>
+        <rows total='true'>[textscan.42123.807260648200].[none:CENTRO_COSTO_DESCRIPCION:nk]</rows>
+        <cols>([textscan.42123.807260648200].[none:ANO_FECHA:ok] / [textscan.42123.807260648200].[:Measure Names])</cols>
       </table>
     </worksheet>
     <worksheet name='E.R. Cols Presup - Gastos Operativos'>
@@ -3204,18 +3434,30 @@
           <filter class='categorical' column='[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]'>
             <groupfilter function='level-members' level='[none:CuentaContableCodigo:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
+          <filter class='categorical' column='[textscan.42123.807260648200].[none:ano_saldo:ok]' filter-group='3'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:ano_saldo:ok]' member='2014' />
+              <groupfilter function='member' level='[none:ano_saldo:ok]' member='2015' />
+            </groupfilter>
+          </filter>
           <sort class='natural' column='[textscan.42123.807260648200].[none:ano_saldo:ok]' direction='DESC' />
+          <filter class='categorical' column='[textscan.42123.807260648200].[none:mes_saldo:ok]' filter-group='4'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:mes_saldo:ok]' member='1' />
+              <groupfilter function='member' level='[none:mes_saldo:ok]' member='2' />
+            </groupfilter>
+          </filter>
           <slices>
             <column>[textscan.42123.807260648200].[none:CentroCostoCodigo:nk]</column>
             <column>[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]</column>
-            <column>[textscan.42123.807260648200].[none:ano_saldo:ok]</column>
-            <column>[textscan.42123.807260648200].[none:mes_saldo:ok]</column>
             <column>[textscan.42123.807260648200].[none:Calculation_2530430081627934:nk]</column>
             <column>[textscan.42123.807260648200].[none:Calculation_2750430103804228:nk]</column>
             <column>[textscan.42123.807260648200].[none:Calculation_9190430105019595:nk]</column>
             <column>[textscan.42123.807260648200].[Centro Costo Desc (group)]</column>
             <column>[textscan.42123.807260648200].[:Measure Names]</column>
             <column>[textscan.42123.807260648200].[none:moneda:nk]</column>
+            <column>[textscan.42123.807260648200].[none:mes_saldo:ok]</column>
+            <column>[textscan.42123.807260648200].[none:ano_saldo:ok]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -3575,12 +3817,22 @@
           <filter class='categorical' column='[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]'>
             <groupfilter function='level-members' level='[none:CuentaContableCodigo:nk]' user:ui-exclude='true' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-manual-selection-is-empty='true' user:ui-marker='enumerate' />
           </filter>
+          <filter class='categorical' column='[textscan.42123.807260648200].[none:ano_saldo:ok]' filter-group='3'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:ano_saldo:ok]' member='2014' />
+              <groupfilter function='member' level='[none:ano_saldo:ok]' member='2015' />
+            </groupfilter>
+          </filter>
           <sort class='natural' column='[textscan.42123.807260648200].[none:ano_saldo:ok]' direction='DESC' />
+          <filter class='categorical' column='[textscan.42123.807260648200].[none:mes_saldo:ok]' filter-group='4'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:mes_saldo:ok]' member='1' />
+              <groupfilter function='member' level='[none:mes_saldo:ok]' member='2' />
+            </groupfilter>
+          </filter>
           <slices>
             <column>[textscan.42123.807260648200].[none:CentroCostoCodigo:nk]</column>
             <column>[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]</column>
-            <column>[textscan.42123.807260648200].[none:ano_saldo:ok]</column>
-            <column>[textscan.42123.807260648200].[none:mes_saldo:ok]</column>
             <column>[textscan.42123.807260648200].[none:Calculation_2530430081627934:nk]</column>
             <column>[textscan.42123.807260648200].[none:Calculation_2750430103804228:nk]</column>
             <column>[textscan.42123.807260648200].[none:Calculation_9190430105019595:nk]</column>
@@ -3588,6 +3840,8 @@
             <column>[textscan.42123.807260648200].[Ingresos Operativos]</column>
             <column>[textscan.42123.807260648200].[:Measure Names]</column>
             <column>[textscan.42123.807260648200].[none:moneda:nk]</column>
+            <column>[textscan.42123.807260648200].[none:ano_saldo:ok]</column>
+            <column>[textscan.42123.807260648200].[none:mes_saldo:ok]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -3716,17 +3970,29 @@
           <filter class='categorical' column='[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]'>
             <groupfilter function='level-members' level='[none:CuentaContableCodigo:nk]' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-manual-selection-is-empty='true' user:ui-marker='enumerate' />
           </filter>
+          <filter class='categorical' column='[textscan.42123.807260648200].[none:ano_saldo:ok]' filter-group='3'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:ano_saldo:ok]' member='2014' />
+              <groupfilter function='member' level='[none:ano_saldo:ok]' member='2015' />
+            </groupfilter>
+          </filter>
           <sort class='natural' column='[textscan.42123.807260648200].[none:ano_saldo:ok]' direction='DESC' />
+          <filter class='categorical' column='[textscan.42123.807260648200].[none:mes_saldo:ok]' filter-group='4'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:mes_saldo:ok]' member='1' />
+              <groupfilter function='member' level='[none:mes_saldo:ok]' member='2' />
+            </groupfilter>
+          </filter>
           <slices>
             <column>[textscan.42123.807260648200].[none:CentroCostoCodigo:nk]</column>
             <column>[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]</column>
-            <column>[textscan.42123.807260648200].[none:ano_saldo:ok]</column>
-            <column>[textscan.42123.807260648200].[none:mes_saldo:ok]</column>
             <column>[textscan.42123.807260648200].[none:Calculation_2530430081627934:nk]</column>
             <column>[textscan.42123.807260648200].[none:Calculation_2750430103804228:nk]</column>
             <column>[textscan.42123.807260648200].[none:Calculation_9190430105019595:nk]</column>
             <column>[textscan.42123.807260648200].[:Measure Names]</column>
             <column>[textscan.42123.807260648200].[none:moneda:nk]</column>
+            <column>[textscan.42123.807260648200].[none:ano_saldo:ok]</column>
+            <column>[textscan.42123.807260648200].[none:mes_saldo:ok]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -3914,17 +4180,29 @@
           <filter class='categorical' column='[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]'>
             <groupfilter function='level-members' level='[none:CuentaContableCodigo:nk]' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-manual-selection-is-empty='true' user:ui-marker='enumerate' />
           </filter>
+          <filter class='categorical' column='[textscan.42123.807260648200].[none:ano_saldo:ok]' filter-group='3'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:ano_saldo:ok]' member='2014' />
+              <groupfilter function='member' level='[none:ano_saldo:ok]' member='2015' />
+            </groupfilter>
+          </filter>
           <sort class='natural' column='[textscan.42123.807260648200].[none:ano_saldo:ok]' direction='DESC' />
+          <filter class='categorical' column='[textscan.42123.807260648200].[none:mes_saldo:ok]' filter-group='4'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:mes_saldo:ok]' member='1' />
+              <groupfilter function='member' level='[none:mes_saldo:ok]' member='2' />
+            </groupfilter>
+          </filter>
           <slices>
             <column>[textscan.42123.807260648200].[none:CentroCostoCodigo:nk]</column>
             <column>[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]</column>
-            <column>[textscan.42123.807260648200].[none:ano_saldo:ok]</column>
-            <column>[textscan.42123.807260648200].[none:mes_saldo:ok]</column>
             <column>[textscan.42123.807260648200].[none:Calculation_2530430081627934:nk]</column>
             <column>[textscan.42123.807260648200].[none:Calculation_2750430103804228:nk]</column>
             <column>[textscan.42123.807260648200].[none:Calculation_9190430105019595:nk]</column>
             <column>[textscan.42123.807260648200].[:Measure Names]</column>
             <column>[textscan.42123.807260648200].[none:moneda:nk]</column>
+            <column>[textscan.42123.807260648200].[none:ano_saldo:ok]</column>
+            <column>[textscan.42123.807260648200].[none:mes_saldo:ok]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -4233,20 +4511,32 @@
           <filter class='categorical' column='[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]'>
             <groupfilter function='level-members' level='[none:CuentaContableCodigo:nk]' user:ui-exclude='true' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-manual-selection-is-empty='true' user:ui-marker='enumerate' />
           </filter>
+          <filter class='categorical' column='[textscan.42123.807260648200].[none:ano_saldo:ok]' filter-group='3'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:ano_saldo:ok]' member='2014' />
+              <groupfilter function='member' level='[none:ano_saldo:ok]' member='2015' />
+            </groupfilter>
+          </filter>
           <sort class='computed' column='[textscan.42123.807260648200].[none:ano_saldo:ok]' direction='DESC' using='[textscan.42123.807260648200].[usr:Calculation_7390506092302321:qk]'>
             <groupfilter function='member' level='[none:Calculation_6710506092457160:nk]' member='&quot;Excedente (déficit) operativo&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
           </sort>
+          <filter class='categorical' column='[textscan.42123.807260648200].[none:mes_saldo:ok]' filter-group='4'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:mes_saldo:ok]' member='1' />
+              <groupfilter function='member' level='[none:mes_saldo:ok]' member='2' />
+            </groupfilter>
+          </filter>
           <slices>
             <column>[textscan.42123.807260648200].[none:CentroCostoCodigo:nk]</column>
             <column>[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]</column>
-            <column>[textscan.42123.807260648200].[none:ano_saldo:ok]</column>
-            <column>[textscan.42123.807260648200].[none:mes_saldo:ok]</column>
             <column>[textscan.42123.807260648200].[none:Calculation_2530430081627934:nk]</column>
             <column>[textscan.42123.807260648200].[none:Calculation_2750430103804228:nk]</column>
             <column>[textscan.42123.807260648200].[none:Calculation_9190430105019595:nk]</column>
             <column>[textscan.42123.807260648200].[Cuenta Contable Codigo (group)]</column>
             <column>[textscan.42123.807260648200].[:Measure Names]</column>
             <column>[textscan.42123.807260648200].[none:moneda:nk]</column>
+            <column>[textscan.42123.807260648200].[none:ano_saldo:ok]</column>
+            <column>[textscan.42123.807260648200].[none:mes_saldo:ok]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -4446,17 +4736,29 @@
           <filter class='categorical' column='[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]'>
             <groupfilter function='level-members' level='[none:CuentaContableCodigo:nk]' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-manual-selection-is-empty='true' user:ui-marker='enumerate' />
           </filter>
+          <filter class='categorical' column='[textscan.42123.807260648200].[none:ano_saldo:ok]' filter-group='3'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:ano_saldo:ok]' member='2014' />
+              <groupfilter function='member' level='[none:ano_saldo:ok]' member='2015' />
+            </groupfilter>
+          </filter>
           <sort class='natural' column='[textscan.42123.807260648200].[none:ano_saldo:ok]' direction='DESC' />
+          <filter class='categorical' column='[textscan.42123.807260648200].[none:mes_saldo:ok]' filter-group='4'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:mes_saldo:ok]' member='1' />
+              <groupfilter function='member' level='[none:mes_saldo:ok]' member='2' />
+            </groupfilter>
+          </filter>
           <slices>
             <column>[textscan.42123.807260648200].[none:CentroCostoCodigo:nk]</column>
             <column>[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]</column>
-            <column>[textscan.42123.807260648200].[none:ano_saldo:ok]</column>
-            <column>[textscan.42123.807260648200].[none:mes_saldo:ok]</column>
             <column>[textscan.42123.807260648200].[none:Calculation_2530430081627934:nk]</column>
             <column>[textscan.42123.807260648200].[none:Calculation_2750430103804228:nk]</column>
             <column>[textscan.42123.807260648200].[none:Calculation_9190430105019595:nk]</column>
             <column>[textscan.42123.807260648200].[:Measure Names]</column>
             <column>[textscan.42123.807260648200].[none:moneda:nk]</column>
+            <column>[textscan.42123.807260648200].[none:ano_saldo:ok]</column>
+            <column>[textscan.42123.807260648200].[none:mes_saldo:ok]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -4644,17 +4946,29 @@
           <filter class='categorical' column='[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]'>
             <groupfilter function='level-members' level='[none:CuentaContableCodigo:nk]' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-manual-selection-is-empty='true' user:ui-marker='enumerate' />
           </filter>
+          <filter class='categorical' column='[textscan.42123.807260648200].[none:ano_saldo:ok]' filter-group='3'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:ano_saldo:ok]' member='2014' />
+              <groupfilter function='member' level='[none:ano_saldo:ok]' member='2015' />
+            </groupfilter>
+          </filter>
           <sort class='natural' column='[textscan.42123.807260648200].[none:ano_saldo:ok]' direction='DESC' />
+          <filter class='categorical' column='[textscan.42123.807260648200].[none:mes_saldo:ok]' filter-group='4'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:mes_saldo:ok]' member='1' />
+              <groupfilter function='member' level='[none:mes_saldo:ok]' member='2' />
+            </groupfilter>
+          </filter>
           <slices>
             <column>[textscan.42123.807260648200].[none:CentroCostoCodigo:nk]</column>
             <column>[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]</column>
-            <column>[textscan.42123.807260648200].[none:ano_saldo:ok]</column>
-            <column>[textscan.42123.807260648200].[none:mes_saldo:ok]</column>
             <column>[textscan.42123.807260648200].[none:Calculation_2530430081627934:nk]</column>
             <column>[textscan.42123.807260648200].[none:Calculation_2750430103804228:nk]</column>
             <column>[textscan.42123.807260648200].[none:Calculation_9190430105019595:nk]</column>
             <column>[textscan.42123.807260648200].[:Measure Names]</column>
             <column>[textscan.42123.807260648200].[none:moneda:nk]</column>
+            <column>[textscan.42123.807260648200].[none:ano_saldo:ok]</column>
+            <column>[textscan.42123.807260648200].[none:mes_saldo:ok]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -4737,9 +5051,7 @@
                       </zone>
                       <zone h='3728' id='32' name='Excedente Neto' show-title='true' w='99667' x='0' y='73545'>
                       </zone>
-                      <zone h='3454' id='33' name='Convenio Ingresos' show-title='true' w='99667' x='0' y='77273'>
-                      </zone>
-                      <zone h='19273' id='36' name='Convenio BID Gastos' show-title='true' w='99667' x='0' y='80727'>
+                      <zone h='22727' id='33' name='Convenio Ingresos' show-title='true' w='99667' x='0' y='77273'>
                       </zone>
                     </zone>
                   </zone>
@@ -4780,8 +5092,6 @@
             <card mode='typeinlist' param='[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]' type='filter' />
             <card mode='radiolist' param='[textscan.42123.807260648200].[none:moneda:nk]' type='filter' />
             <card mode='typeinlist' param='[textscan.42123.807260648200].[Cuenta Contable Codigo (group)]' type='filter' />
-            <card param='[textscan.42123.807260648200].[none:mes_saldo:ok]' type='filter' />
-            <card param='[textscan.42123.807260648200].[none:ano_saldo:ok]' type='filter' />
           </strip>
         </edge>
       </cards>
@@ -4818,10 +5128,10 @@
       <cards>
         <edge name='left'>
           <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-            <card type='measures' />
+            <card size='36' type='pages' />
+            <card size='274' type='filters' />
+            <card size='183' type='marks' />
+            <card size='58' type='measures' />
           </strip>
         </edge>
         <edge name='top'>
@@ -4839,9 +5149,9 @@
             <card mode='typeinlist' param='[textscan.42123.807260648200].[none:Calculation_2750430103804228:nk]' type='filter' />
             <card mode='typeinlist' param='[textscan.42123.807260648200].[none:CentroCostoCodigo:nk]' type='filter' />
             <card mode='pattern' param='[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]' type='filter' />
+            <card mode='radiolist' param='[textscan.42123.807260648200].[none:moneda:nk]' type='filter' />
             <card param='[textscan.42123.807260648200].[none:ano_saldo:ok]' type='filter' />
             <card param='[textscan.42123.807260648200].[none:mes_saldo:ok]' type='filter' />
-            <card mode='radiolist' param='[textscan.42123.807260648200].[none:moneda:nk]' type='filter' />
           </strip>
         </edge>
       </cards>
@@ -4901,8 +5211,6 @@
             <card mode='typeinlist' param='[textscan.42123.807260648200].[none:Calculation_2750430103804228:nk]' type='filter' />
             <card mode='typeinlist' param='[textscan.42123.807260648200].[none:CentroCostoCodigo:nk]' type='filter' />
             <card mode='typeinlist' param='[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]' type='filter' />
-            <card param='[textscan.42123.807260648200].[none:ano_saldo:ok]' type='filter' />
-            <card param='[textscan.42123.807260648200].[none:mes_saldo:ok]' type='filter' />
           </strip>
         </edge>
       </cards>
@@ -4948,9 +5256,10 @@
       <cards>
         <edge name='left'>
           <strip size='160'>
-            <card size='36' type='pages' />
-            <card size='167' type='filters' />
-            <card size='183' type='marks' />
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
           </strip>
         </edge>
         <edge name='top'>
@@ -4968,9 +5277,10 @@
             <card mode='typeinlist' param='[textscan.42123.807260648200].[none:Calculation_2750430103804228:nk]' type='filter' />
             <card mode='typeinlist' param='[textscan.42123.807260648200].[none:CentroCostoCodigo:nk]' type='filter' />
             <card mode='typeinlist' param='[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]' type='filter' />
-            <card param='[textscan.42123.807260648200].[none:ano_saldo:ok]' type='filter' />
-            <card param='[textscan.42123.807260648200].[none:mes_saldo:ok]' type='filter' />
             <card param='[textscan.42123.807260648200].[none:moneda:nk]' type='filter' />
+            <card mode='typeinlist' param='[textscan.42123.807260648200].[none:CENTRO_COSTO:nk]' type='filter' />
+            <card param='[textscan.42123.807260648200].[none:ANO_FECHA:ok]' type='filter' />
+            <card param='[textscan.42123.807260648200].[none:MES_FECHA:ok]' type='filter' />
           </strip>
         </edge>
       </cards>
@@ -4999,83 +5309,18 @@
           <field>[textscan.42123.807260648200].[io:Rubros Presupuestarios:nk]</field>
           <field>[textscan.42123.807260648200].[io:Rubros presupuestarios:nk]</field>
           <field>[textscan.42123.807260648200].[none:AGRUPACION_1:nk]</field>
+          <field>[textscan.42123.807260648200].[none:ANO_FECHA:ok]</field>
           <field>[textscan.42123.807260648200].[none:CENTRO_COSTO:nk]</field>
+          <field>[textscan.42123.807260648200].[none:CENTRO_COSTO_DESCRIPCION:nk]</field>
           <field>[textscan.42123.807260648200].[none:Calculation_1290430140318125:nk]</field>
           <field>[textscan.42123.807260648200].[none:Calculation_2530430081627934:nk]</field>
           <field>[textscan.42123.807260648200].[none:Calculation_2750430103804228:nk]</field>
           <field>[textscan.42123.807260648200].[none:Calculation_9190430105019595:nk]</field>
           <field>[textscan.42123.807260648200].[none:CentroCostoCodigo:nk]</field>
           <field>[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]</field>
-          <field>[textscan.42123.807260648200].[none:ano_saldo:ok]</field>
-          <field>[textscan.42123.807260648200].[none:centro_costo_desc:nk]</field>
-          <field>[textscan.42123.807260648200].[none:cuenta_contable:nk]</field>
-          <field>[textscan.42123.807260648200].[none:mes_saldo:ok]</field>
-        </color-one-way>
-      </highlight>
-    </window>
-    <window auto-hidden='0' class='worksheet' maximized='0' name='Convenio BID Gastos'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card size='36' type='pages' />
-            <card size='167' type='filters' />
-            <card size='183' type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='31'>
-            <card type='columns' />
-          </strip>
-          <strip size='31'>
-            <card type='rows' />
-          </strip>
-        </edge>
-        <edge name='right'>
-          <strip size='160'>
-            <card mode='typeinlist' param='[textscan.42123.807260648200].[none:Calculation_2530430081627934:nk]' type='filter' />
-            <card mode='typeinlist' param='[textscan.42123.807260648200].[none:Calculation_9190430105019595:nk]' type='filter' />
-            <card mode='typeinlist' param='[textscan.42123.807260648200].[none:Calculation_2750430103804228:nk]' type='filter' />
-            <card mode='typeinlist' param='[textscan.42123.807260648200].[none:CentroCostoCodigo:nk]' type='filter' />
-            <card mode='typeinlist' param='[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]' type='filter' />
-            <card param='[textscan.42123.807260648200].[none:ano_saldo:ok]' type='filter' />
-            <card param='[textscan.42123.807260648200].[none:mes_saldo:ok]' type='filter' />
-            <card param='[textscan.42123.807260648200].[none:moneda:nk]' type='filter' />
-          </strip>
-        </edge>
-      </cards>
-      <highlight>
-        <color-one-way>
-          <field>[textscan.42123.807260648200].[:Measure Names]</field>
-          <field>[textscan.42123.807260648200].[Centro Costo Cod (group)]</field>
-          <field>[textscan.42123.807260648200].[Centro Costo Desc (group) 1]</field>
-          <field>[textscan.42123.807260648200].[Centro Costo Desc (group)]</field>
-          <field>[textscan.42123.807260648200].[Convenio CINDE]</field>
-          <field>[textscan.42123.807260648200].[Convenio Comex Procomer]</field>
-          <field>[textscan.42123.807260648200].[Cuenta Contable (group) 1]</field>
-          <field>[textscan.42123.807260648200].[Cuenta Contable (group) 2]</field>
-          <field>[textscan.42123.807260648200].[Cuenta Contable (group)]</field>
-          <field>[textscan.42123.807260648200].[Cuenta Contable Codigo (group) 1]</field>
-          <field>[textscan.42123.807260648200].[Cuenta Contable Codigo (group) 2]</field>
-          <field>[textscan.42123.807260648200].[Cuenta Contable Codigo (group)]</field>
-          <field>[textscan.42123.807260648200].[Ganancia (Pérdida)]</field>
-          <field>[textscan.42123.807260648200].[Gastos Operativos]</field>
-          <field>[textscan.42123.807260648200].[Ingresos Operativos]</field>
-          <field>[textscan.42123.807260648200].[Rubros Contables]</field>
-          <field>[textscan.42123.807260648200].[Rubros Presupuestarios]</field>
-          <field>[textscan.42123.807260648200].[Rubros presupuestarios]</field>
-          <field>[textscan.42123.807260648200].[Set 1]</field>
-          <field>[textscan.42123.807260648200].[io:Rubros Contables:nk]</field>
-          <field>[textscan.42123.807260648200].[io:Rubros Presupuestarios:nk]</field>
-          <field>[textscan.42123.807260648200].[io:Rubros presupuestarios:nk]</field>
-          <field>[textscan.42123.807260648200].[none:AGRUPACION_1:nk]</field>
-          <field>[textscan.42123.807260648200].[none:CENTRO_COSTO:nk]</field>
-          <field>[textscan.42123.807260648200].[none:Calculation_1290430140318125:nk]</field>
-          <field>[textscan.42123.807260648200].[none:Calculation_2530430081627934:nk]</field>
-          <field>[textscan.42123.807260648200].[none:Calculation_2750430103804228:nk]</field>
-          <field>[textscan.42123.807260648200].[none:Calculation_8480511090430467:nk]</field>
-          <field>[textscan.42123.807260648200].[none:Calculation_9190430105019595:nk]</field>
-          <field>[textscan.42123.807260648200].[none:CentroCostoCodigo:nk]</field>
-          <field>[textscan.42123.807260648200].[none:CuentaContableCodigo:nk]</field>
+          <field>[textscan.42123.807260648200].[none:MES_FECHA:ok]</field>
+          <field>[textscan.42123.807260648200].[none:PARTIDA:nk]</field>
+          <field>[textscan.42123.807260648200].[none:PARTIDA_DESCRIPCION:nk]</field>
           <field>[textscan.42123.807260648200].[none:ano_saldo:ok]</field>
           <field>[textscan.42123.807260648200].[none:centro_costo_desc:nk]</field>
           <field>[textscan.42123.807260648200].[none:cuenta_contable:nk]</field>
@@ -5406,7 +5651,7 @@
       </highlight>
     </window>
     <window auto-hidden='0' class='dashboard' maximized='1' name='E.R. Cols Presup'>
-      <active id='36' />
+      <active id='33' />
       <zones>
         <zone h='21059' id='1' name='E.R. Cols Presup - Ingresos Operativos' show-title='true' w='83673' x='0' y='0'>
           <viewpoint>
@@ -5439,6 +5684,11 @@
           </viewpoint>
         </zone>
         <zone name='Excedente Neto'>
+          <viewpoint>
+            <zoom type='fit-width' />
+          </viewpoint>
+        </zone>
+        <zone name='Convenio Ingresos'>
           <viewpoint>
             <zoom type='fit-width' />
           </viewpoint>
@@ -7512,167 +7762,276 @@
       YRlYSrlVVMxtizYSgUGEhNTGfQiCUNv8aAyAIAiCULvIv4QUBEHwU8QACIIg+CliAARBEPwU
       MQCCIAh+yv8BkNeRJ/yzL8QAAAAASUVORK5CYII=
     </thumbnail>
-    <thumbnail height='48' name='Convenio Ingresos' width='384'>
-      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
-    </thumbnail>
-    <thumbnail height='48' name='Convenio BID Gastos' width='384'>
-      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
+    <thumbnail height='128' name='Convenio Ingresos' width='384'>
+      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
     </thumbnail>
     <thumbnail height='48' name='Excedente Operativo' width='384'>
       iVBORw0KGgoAAAANSUhEUgAAAYAAAAAwCAYAAAAYeq1+AAAACXBIWXMAAA7DAAAOwwHHb6hk
@@ -8174,128 +8533,138 @@
     </thumbnail>
     <thumbnail height='48' name='Ganacia (Pérdida)' width='384'>
       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
-      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
+      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
+      zFL+P8tep4osri5xAAAAAElFTkSuQmCC
     </thumbnail>
     <thumbnail height='384' name='E.R. Cols Presup' width='384'>
       iVBORw0KGgoAAAANSUhEUgAAAYAAAAGACAYAAACkx7W/AAAACXBIWXMAAAsTAAALEwEAmpwY
