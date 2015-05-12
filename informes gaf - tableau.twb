@@ -1884,6 +1884,11 @@
           <table-calc ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
         </calculation>
       </column>
+      <column caption='LastYr % Convenios' datatype='real' name='[LastYr Convenios (copy 2)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='lookup([Calculation_9340507144618109],1)' scope-isolation='false'>
+          <table-calc ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
+        </calculation>
+      </column>
       <column caption='LastYr Convenio ingresos' datatype='real' name='[LastYr Convenios (copy)]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='lookup(sum([Saldo Real Convenios (copy)]),1)' scope-isolation='false'>
           <table-calc ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
@@ -2685,6 +2690,16 @@
                 <table-calc ordering-type='Rows' />
               </calculation>
             </column>
+            <column caption='LastYr % Convenios' datatype='real' name='[LastYr Convenios (copy 2)]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='lookup([Calculation_9340507144618109],1)' scope-isolation='false'>
+                <table-calc ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
+              </calculation>
+            </column>
+            <column caption='LastYr Convenios' datatype='real' name='[LastYr Excedentes (copy 3)]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='lookup(sum([Calculation_2880507143114081]),1)' scope-isolation='false'>
+                <table-calc ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
+              </calculation>
+            </column>
             <column caption='Real vs Presup Convenios' datatype='real' name='[Real vs Presup Excedente (copy 2)]' role='measure' type='quantitative'>
               <calculation class='tableau' formula='sum([Calculation_2880507143114081]) - [SMontoPresup Excedentes (copy 2)]' scope-isolation='false' />
             </column>
@@ -2727,6 +2742,14 @@
             <column-instance column='[Excedente % Total  Presup (copy 2)]' derivation='User' name='[usr:Excedente % Total  Presup (copy 2):qk:1]' pivot='key' type='quantitative'>
               <table-calc ordering-type='Columns' />
             </column-instance>
+            <column-instance column='[LastYr Convenios (copy 2)]' derivation='User' name='[usr:LastYr Convenios (copy 2):qk:2]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
+              <table-calc field='[textscan.42123.807260648200].[Calculation_9340507144618109]' ordering-type='Columns' />
+              <table-calc field='[textscan.42123.807260648200].[Calculation_6520507145251047]' ordering-type='Columns' />
+            </column-instance>
+            <column-instance column='[LastYr Excedentes (copy 3)]' derivation='User' name='[usr:LastYr Excedentes (copy 3):qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
+            </column-instance>
             <column-instance column='[Real vs Presup Excedente (copy 2)]' derivation='User' name='[usr:Real vs Presup Excedente (copy 2):qk]' pivot='key' type='quantitative' />
             <column-instance column='[SMontoPresup Excedentes (copy 2)]' derivation='User' name='[usr:SMontoPresup Excedentes (copy 2):qk]' pivot='key' type='quantitative' />
             <column-instance column='[dif YoY Gastos Excedentes (copy 3)]' derivation='User' name='[usr:dif YoY Gastos Excedentes (copy 3):qk:2]' pivot='key' type='quantitative'>
@@ -2742,6 +2765,8 @@
               <groupfilter function='member' level='[:Measure Names]' member='&quot;[textscan.42123.807260648200].[usr:Excedente \% Total  Presup (copy 2):qk:1]&quot;' />
               <groupfilter function='member' level='[:Measure Names]' member='&quot;[textscan.42123.807260648200].[usr:Real vs Presup Excedente (copy 2):qk]&quot;' />
               <groupfilter function='member' level='[:Measure Names]' member='&quot;[textscan.42123.807260648200].[usr:\% Dif Real-Presup Excedentes (copy 2):qk:1]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[textscan.42123.807260648200].[usr:LastYr Excedentes (copy 3):qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[textscan.42123.807260648200].[usr:LastYr Convenios (copy 2):qk:2]&quot;' />
               <groupfilter function='member' level='[:Measure Names]' member='&quot;[textscan.42123.807260648200].[usr:dif YoY Gastos Excedentes (copy 3):qk:2]&quot;' />
               <groupfilter function='member' level='[:Measure Names]' member='&quot;[textscan.42123.807260648200].[usr:\% YoY Gastos Excedentes (copy 3):qk:3]&quot;' />
             </groupfilter>
@@ -2754,6 +2779,8 @@
               <bucket>&quot;[textscan.42123.807260648200].[usr:Excedente \% Total  Presup (copy 2):qk:1]&quot;</bucket>
               <bucket>&quot;[textscan.42123.807260648200].[usr:Real vs Presup Excedente (copy 2):qk]&quot;</bucket>
               <bucket>&quot;[textscan.42123.807260648200].[usr:\% Dif Real-Presup Excedentes (copy 2):qk:1]&quot;</bucket>
+              <bucket>&quot;[textscan.42123.807260648200].[usr:LastYr Excedentes (copy 3):qk]&quot;</bucket>
+              <bucket>&quot;[textscan.42123.807260648200].[usr:LastYr Convenios (copy 2):qk:2]&quot;</bucket>
               <bucket>&quot;[textscan.42123.807260648200].[usr:dif YoY Gastos Excedentes (copy 3):qk:2]&quot;</bucket>
               <bucket>&quot;[textscan.42123.807260648200].[usr:\% YoY Gastos Excedentes (copy 3):qk:3]&quot;</bucket>
             </dictionary>
@@ -2798,6 +2825,12 @@
               </groupfilter>
             </groupfilter>
           </filter>
+          <filter class='categorical' column='[textscan.42123.807260648200].[none:ano_saldo:ok]' kind='hide'>
+            <groupfilter function='except' user:ui-domain='relevant' user:ui-enumeration='exclusive' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:ano_saldo:ok]' />
+              <groupfilter function='member' level='[none:ano_saldo:ok]' member='2014' />
+            </groupfilter>
+          </filter>
           <sort class='natural' column='[textscan.42123.807260648200].[none:ano_saldo:ok]' direction='DESC' />
           <filter class='categorical' column='[textscan.42123.807260648200].[none:mes_saldo:ok]' filter-group='4'>
             <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
@@ -2828,6 +2861,7 @@
             <format attr='text-format' field='[textscan.42123.807260648200].[usr:% Dif Real-Presup Excedentes (copy 2):qk:1]' value='p0%' />
             <format attr='text-format' field='[textscan.42123.807260648200].[usr:% YoY Gastos Excedentes (copy 3):qk:3]' value='p0%' />
             <format attr='text-format' field='[textscan.42123.807260648200].[usr:Calculation_9340507144618109:qk:6]' value='p0%' />
+            <format attr='text-format' field='[textscan.42123.807260648200].[usr:LastYr Convenios (copy 2):qk:2]' value='p0%' />
           </style-rule>
           <style-rule element='header'>
             <format attr='width' field='[textscan.42123.807260648200].[none:CentroCostoCodigo:nk]' value='124' />
@@ -5428,7 +5462,7 @@
         </color-one-way>
       </highlight>
     </window>
-    <window auto-hidden='0' class='worksheet' maximized='1' name='E.R. Cols Presup - Gastos Operativos'>
+    <window auto-hidden='0' class='worksheet' maximized='0' name='E.R. Cols Presup - Gastos Operativos'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -5492,7 +5526,7 @@
         </color-one-way>
       </highlight>
     </window>
-    <window auto-hidden='0' class='worksheet' maximized='0' name='Convenio COMEX-CINDE-PROCOMER'>
+    <window auto-hidden='0' class='worksheet' maximized='1' name='Convenio COMEX-CINDE-PROCOMER'>
       <cards>
         <edge name='left'>
           <strip size='160'>
