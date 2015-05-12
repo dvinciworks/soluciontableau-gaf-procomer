@@ -1869,6 +1869,11 @@
           <table-calc ordering-type='Rows' />
         </calculation>
       </column>
+      <column caption='LastYr % Convenio ingresos' datatype='real' name='[LastYr % Convenios (copy)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='lookup([Saldo Real Convenios % Total Ingresos (copy)],1)' scope-isolation='false'>
+          <table-calc ordering-field='[textscan.42123.807260648200].[ANO_FECHA]' ordering-type='Field' />
+        </calculation>
+      </column>
       <column caption='LastYr Excedentes' datatype='real' name='[LastYr (copy 2)]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='lookup([Calculation_7390506092302321],1)' scope-isolation='false'>
           <table-calc ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
@@ -2111,8 +2116,8 @@
       <column-instance column='[Saldo Real (copy)]' derivation='Sum' name='[sum:Saldo Real (copy):qk]' pivot='key' type='quantitative' />
       <column-instance column='[Calculation_0170507100541817]' derivation='User' name='[usr:Calculation_0170507100541817:qk:7]' pivot='key' type='quantitative'>
         <table-calc ordering-type='Columns' />
-        <table-calc field='[textscan.42123.807260648200].[Calculation_6910507094948079]' ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
         <table-calc field='[textscan.42123.807260648200].[Calculation_1840507101821118]' ordering-type='Columns' />
+        <table-calc field='[textscan.42123.807260648200].[Calculation_6910507094948079]' ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
       </column-instance>
       <column-instance column='[Calculation_0860507082501149]' derivation='User' name='[usr:Calculation_0860507082501149:qk:1]' pivot='key' type='quantitative'>
         <table-calc ordering-type='RowInPane' />
@@ -2410,6 +2415,7 @@
         <folder-item name='[Calculation_6520507145251047]' type='field' />
         <folder-item name='[Calculation_9340507144618109]' type='field' />
         <folder-item name='[Excedente % Total  Presup (copy 2)]' type='field' />
+        <folder-item name='[LastYr Convenios (copy 2)]' type='field' />
         <folder-item name='[LastYr Excedentes (copy 3)]' type='field' />
         <folder-item name='[Real vs Presup Excedente (copy 2)]' type='field' />
         <folder-item name='[SMontoPresup Excedentes (copy 2)]' type='field' />
@@ -2732,8 +2738,8 @@
             <column-instance column='[% Dif Real-Presup Excedentes (copy 2)]' derivation='User' name='[usr:% Dif Real-Presup Excedentes (copy 2):qk:1]' pivot='key' type='quantitative' />
             <column-instance column='[% YoY Gastos Excedentes (copy 3)]' derivation='User' name='[usr:% YoY Gastos Excedentes (copy 3):qk:3]' pivot='key' type='quantitative'>
               <table-calc ordering-type='Columns' />
-              <table-calc field='[textscan.42123.807260648200].[LastYr Excedentes (copy 3)]' ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
               <table-calc field='[textscan.42123.807260648200].[dif YoY Gastos Excedentes (copy 3)]' ordering-type='Columns' />
+              <table-calc field='[textscan.42123.807260648200].[LastYr Excedentes (copy 3)]' ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
             </column-instance>
             <column-instance column='[Calculation_9340507144618109]' derivation='User' name='[usr:Calculation_9340507144618109:qk:6]' pivot='key' type='quantitative'>
               <table-calc ordering-type='Columns' />
@@ -2744,8 +2750,8 @@
             </column-instance>
             <column-instance column='[LastYr Convenios (copy 2)]' derivation='User' name='[usr:LastYr Convenios (copy 2):qk:2]' pivot='key' type='quantitative'>
               <table-calc ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
-              <table-calc field='[textscan.42123.807260648200].[Calculation_9340507144618109]' ordering-type='Columns' />
               <table-calc field='[textscan.42123.807260648200].[Calculation_6520507145251047]' ordering-type='Columns' />
+              <table-calc field='[textscan.42123.807260648200].[Calculation_9340507144618109]' ordering-type='Columns' />
             </column-instance>
             <column-instance column='[LastYr Excedentes (copy 3)]' derivation='User' name='[usr:LastYr Excedentes (copy 3):qk]' pivot='key' type='quantitative'>
               <table-calc ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
@@ -2951,6 +2957,16 @@
             </column>
             <column caption='Cuenta Contable Codigo' datatype='string' name='[CuentaContableCodigo]' role='dimension' type='nominal'>
             </column>
+            <column caption='LastYr % Convenio ingresos' datatype='real' name='[LastYr % Convenios (copy)]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='lookup([Saldo Real Convenios % Total Ingresos (copy)],1)' scope-isolation='false'>
+                <table-calc ordering-field='[textscan.42123.807260648200].[ANO_FECHA]' ordering-type='Field' />
+              </calculation>
+            </column>
+            <column caption='LastYr Convenio ingresos' datatype='real' name='[LastYr Convenios (copy)]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='lookup(sum([Saldo Real Convenios (copy)]),1)' scope-isolation='false'>
+                <table-calc ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
+              </calculation>
+            </column>
             <column aggregation='Sum' caption='Mes Fecha' datatype='integer' name='[MES_FECHA]' role='dimension' type='ordinal'>
             </column>
             <column caption='Real vs Presup Convenio ingresos' datatype='real' name='[Real vs Presup Convenios (copy)]' role='measure' type='quantitative'>
@@ -2966,8 +2982,6 @@
             </column>
             <column caption='Saldo Real Convenio Ingresos' datatype='real' name='[Saldo Real Convenios (copy)]' role='measure' type='quantitative'>
               <calculation class='tableau' formula='iif([Convenio Ingresos],[Calculation_3110430081400501],0)' scope-isolation='false' />
-            </column>
-            <column aggregation='Sum' caption='Ano Saldo' datatype='integer' name='[ano_saldo]' role='dimension' type='ordinal'>
             </column>
             <column caption='dif YoY Gastos Convenio ingresos' datatype='real' name='[dif YoY Gastos Convenios (copy)]' role='measure' type='quantitative'>
               <calculation class='tableau' formula='zn(sum([Saldo Real Convenios (copy)])) - zn([LastYr Convenios (copy)])' scope-isolation='false'>
@@ -2989,18 +3003,21 @@
             <column-instance column='[SMontoPresup convenios (copy)]' derivation='Sum' name='[sum:SMontoPresup convenios (copy):qk]' pivot='key' type='quantitative' />
             <column-instance column='[Saldo Real Convenios (copy)]' derivation='Sum' name='[sum:Saldo Real Convenios (copy):qk]' pivot='key' type='quantitative' />
             <column-instance column='[% Dif Real-Presup Convenios (copy)]' derivation='User' name='[usr:% Dif Real-Presup Convenios (copy):qk]' pivot='key' type='quantitative' />
-            <column-instance column='[% YoY Convenios (copy)]' derivation='User' name='[usr:% YoY Convenios (copy):qk:2]' pivot='key' type='quantitative'>
-              <table-calc ordering-type='Columns' />
-              <table-calc field='[textscan.42123.807260648200].[LastYr Convenios (copy)]' ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
-              <table-calc field='[textscan.42123.807260648200].[dif YoY Gastos Convenios (copy)]' ordering-field='[textscan.42123.807260648200].[ANO_FECHA]' ordering-type='Field' />
-            </column-instance>
             <column-instance column='[% YoY Convenios (copy)]' derivation='User' name='[usr:% YoY Convenios (copy):qk:4]' pivot='key' type='quantitative'>
               <table-calc ordering-field='[textscan.42123.807260648200].[ANO_FECHA]' ordering-type='Field' />
-              <table-calc field='[textscan.42123.807260648200].[dif YoY Gastos Convenios (copy)]' ordering-field='[textscan.42123.807260648200].[ANO_FECHA]' ordering-type='Field' />
               <table-calc field='[textscan.42123.807260648200].[LastYr Convenios (copy)]' ordering-field='[textscan.42123.807260648200].[ANO_FECHA]' ordering-type='Field' />
+              <table-calc field='[textscan.42123.807260648200].[dif YoY Gastos Convenios (copy)]' ordering-field='[textscan.42123.807260648200].[ANO_FECHA]' ordering-type='Field' />
             </column-instance>
             <column-instance column='[Convenios % Total  Presup (copy)]' derivation='User' name='[usr:Convenios % Total  Presup (copy):qk:7]' pivot='key' type='quantitative'>
               <table-calc ordering-type='Columns' />
+            </column-instance>
+            <column-instance column='[LastYr % Convenios (copy)]' derivation='User' name='[usr:LastYr % Convenios (copy):qk:7]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[textscan.42123.807260648200].[ANO_FECHA]' ordering-type='Field' />
+              <table-calc field='[textscan.42123.807260648200].[Saldo Real Convenios % Total Ingresos (copy)]' ordering-type='Columns' />
+              <table-calc field='[textscan.42123.807260648200].[Total Ingresos para convenios (copy)]' ordering-type='Columns' />
+            </column-instance>
+            <column-instance column='[LastYr Convenios (copy)]' derivation='User' name='[usr:LastYr Convenios (copy):qk:1]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[textscan.42123.807260648200].[ANO_FECHA]' ordering-type='Field' />
             </column-instance>
             <column-instance column='[Real vs Presup Convenios (copy)]' derivation='User' name='[usr:Real vs Presup Convenios (copy):qk]' pivot='key' type='quantitative' />
             <column-instance column='[Saldo Real Convenios % Total Ingresos (copy)]' derivation='User' name='[usr:Saldo Real Convenios % Total Ingresos (copy):qk:2]' pivot='key' type='quantitative'>
@@ -3020,6 +3037,8 @@
               <groupfilter function='member' level='[:Measure Names]' member='&quot;[textscan.42123.807260648200].[usr:Convenios \% Total  Presup (copy):qk:7]&quot;' />
               <groupfilter function='member' level='[:Measure Names]' member='&quot;[textscan.42123.807260648200].[usr:Real vs Presup Convenios (copy):qk]&quot;' />
               <groupfilter function='member' level='[:Measure Names]' member='&quot;[textscan.42123.807260648200].[usr:\% Dif Real-Presup Convenios (copy):qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[textscan.42123.807260648200].[usr:LastYr Convenios (copy):qk:1]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[textscan.42123.807260648200].[usr:LastYr \% Convenios (copy):qk:7]&quot;' />
               <groupfilter function='member' level='[:Measure Names]' member='&quot;[textscan.42123.807260648200].[usr:dif YoY Gastos Convenios (copy):qk:4]&quot;' />
               <groupfilter function='member' level='[:Measure Names]' member='&quot;[textscan.42123.807260648200].[usr:\% YoY Convenios (copy):qk:4]&quot;' />
             </groupfilter>
@@ -3032,14 +3051,22 @@
               <bucket>&quot;[textscan.42123.807260648200].[usr:Convenios \% Total  Presup (copy):qk:7]&quot;</bucket>
               <bucket>&quot;[textscan.42123.807260648200].[usr:Real vs Presup Convenios (copy):qk]&quot;</bucket>
               <bucket>&quot;[textscan.42123.807260648200].[usr:\% Dif Real-Presup Convenios (copy):qk]&quot;</bucket>
+              <bucket>&quot;[textscan.42123.807260648200].[usr:LastYr Convenios (copy):qk:1]&quot;</bucket>
+              <bucket>&quot;[textscan.42123.807260648200].[usr:LastYr \% Convenios (copy):qk:7]&quot;</bucket>
               <bucket>&quot;[textscan.42123.807260648200].[usr:dif YoY Gastos Convenios (copy):qk:4]&quot;</bucket>
-              <bucket>&quot;[textscan.42123.807260648200].[usr:\% YoY Convenios (copy):qk:2]&quot;</bucket>
+              <bucket>&quot;[textscan.42123.807260648200].[usr:\% YoY Convenios (copy):qk:4]&quot;</bucket>
             </dictionary>
           </sort>
           <filter class='categorical' column='[textscan.42123.807260648200].[none:ANO_FECHA:ok]'>
             <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
               <groupfilter function='member' level='[none:ANO_FECHA:ok]' member='2014' />
               <groupfilter function='member' level='[none:ANO_FECHA:ok]' member='2015' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[textscan.42123.807260648200].[none:ANO_FECHA:ok]' kind='hide'>
+            <groupfilter function='except' user:ui-domain='relevant' user:ui-enumeration='exclusive' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:ANO_FECHA:ok]' />
+              <groupfilter function='member' level='[none:ANO_FECHA:ok]' member='2014' />
             </groupfilter>
           </filter>
           <sort class='natural' column='[textscan.42123.807260648200].[none:ANO_FECHA:ok]' direction='DESC' />
@@ -3338,6 +3365,7 @@
             <format attr='text-format' field='[textscan.42123.807260648200].[usr:Convenios % Total  Presup (copy):qk:7]' value='p0%' />
             <format attr='text-format' field='[textscan.42123.807260648200].[usr:% Dif Real-Presup Convenios (copy):qk]' value='p0%' />
             <format attr='text-format' field='[textscan.42123.807260648200].[usr:% YoY Convenios (copy):qk:4]' value='p0%' />
+            <format attr='text-format' field='[textscan.42123.807260648200].[usr:LastYr % Convenios (copy):qk:7]' value='p0%' />
           </style-rule>
           <style-rule element='header'>
             <format attr='width' field='[textscan.42123.807260648200].[none:CentroCostoCodigo:nk]' value='124' />
@@ -3348,8 +3376,8 @@
           </style-rule>
           <style-rule element='label'>
             <format attr='display' field='[textscan.42123.807260648200].[:Measure Names]' value='false' />
-            <format attr='font-weight' field='[textscan.42123.807260648200].[none:CENTRO_COSTO_DESCRIPCION:nk]' value='normal' />
             <format attr='display' field='[textscan.42123.807260648200].[none:ANO_FECHA:ok]' value='false' />
+            <format attr='font-weight' field='[textscan.42123.807260648200].[none:CENTRO_COSTO_DESCRIPCION:nk]' value='normal' />
           </style-rule>
           <style-rule element='worksheet'>
             <format attr='display-field-labels' scope='rows' value='false' />
@@ -3536,8 +3564,8 @@
             </column-instance>
             <column-instance column='[% YoY (copy)]' derivation='User' name='[usr:% YoY (copy):qk:3]' pivot='key' type='quantitative'>
               <table-calc ordering-type='Columns' />
-              <table-calc field='[textscan.42123.807260648200].[LastYr (copy)]' ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
               <table-calc field='[textscan.42123.807260648200].[dif YoY (copy)]' ordering-type='Columns' />
+              <table-calc field='[textscan.42123.807260648200].[LastYr (copy)]' ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
             </column-instance>
             <column-instance column='[Calculation_4250506165306794]' derivation='User' name='[usr:Calculation_4250506165306794:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Calculation_5590506155753409]' derivation='User' name='[usr:Calculation_5590506155753409:qk:8]' pivot='key' type='quantitative'>
@@ -3973,8 +4001,8 @@
             <column-instance column='[Saldo Real (copy)]' derivation='Sum' name='[sum:Saldo Real (copy):qk]' pivot='key' type='quantitative' />
             <column-instance column='[Calculation_0170507100541817]' derivation='User' name='[usr:Calculation_0170507100541817:qk:7]' pivot='key' type='quantitative'>
               <table-calc ordering-type='Columns' />
-              <table-calc field='[textscan.42123.807260648200].[Calculation_6910507094948079]' ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
               <table-calc field='[textscan.42123.807260648200].[Calculation_1840507101821118]' ordering-type='Columns' />
+              <table-calc field='[textscan.42123.807260648200].[Calculation_6910507094948079]' ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
             </column-instance>
             <column-instance column='[Calculation_0860507082501149]' derivation='User' name='[usr:Calculation_0860507082501149:qk:1]' pivot='key' type='quantitative'>
               <table-calc ordering-type='RowInPane' />
@@ -4388,8 +4416,8 @@
             </column-instance>
             <column-instance column='[% YoY Gastos Excedentes (copy 2)]' derivation='User' name='[usr:% YoY Gastos Excedentes (copy 2):qk:3]' pivot='key' type='quantitative'>
               <table-calc ordering-type='Columns' />
-              <table-calc field='[textscan.42123.807260648200].[dif YoY Gastos Excedentes (copy 2)]' ordering-type='Columns' />
               <table-calc field='[textscan.42123.807260648200].[LastYr Excedentes (copy 2)]' ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
+              <table-calc field='[textscan.42123.807260648200].[dif YoY Gastos Excedentes (copy 2)]' ordering-type='Columns' />
             </column-instance>
             <column-instance column='[Calculation_1410506105430505]' derivation='User' name='[usr:Calculation_1410506105430505:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Excedente % Total  Presup (copy)]' derivation='User' name='[usr:Excedente % Total  Presup (copy):qk:1]' pivot='key' type='quantitative'>
@@ -4727,8 +4755,8 @@
             </column-instance>
             <column-instance column='[% YoY Gastos (copy)]' derivation='User' name='[usr:% YoY Gastos (copy):qk:3]' pivot='key' type='quantitative'>
               <table-calc ordering-type='Columns' />
-              <table-calc field='[textscan.42123.807260648200].[LastYr (copy 2)]' ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
               <table-calc field='[textscan.42123.807260648200].[dif YoY Gastos (copy)]' ordering-type='Columns' />
+              <table-calc field='[textscan.42123.807260648200].[LastYr (copy 2)]' ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
             </column-instance>
             <column-instance column='[Calculation_0330507114335214]' derivation='User' name='[usr:Calculation_0330507114335214:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Calculation_7390506092302321]' derivation='User' name='[usr:Calculation_7390506092302321:qk]' pivot='key' type='quantitative' />
@@ -4966,8 +4994,8 @@
             </column-instance>
             <column-instance column='[% YoY Gastos Excedentes (copy 2)]' derivation='User' name='[usr:% YoY Gastos Excedentes (copy 2):qk:3]' pivot='key' type='quantitative'>
               <table-calc ordering-type='Columns' />
-              <table-calc field='[textscan.42123.807260648200].[dif YoY Gastos Excedentes (copy 2)]' ordering-type='Columns' />
               <table-calc field='[textscan.42123.807260648200].[LastYr Excedentes (copy 2)]' ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
+              <table-calc field='[textscan.42123.807260648200].[dif YoY Gastos Excedentes (copy 2)]' ordering-type='Columns' />
             </column-instance>
             <column-instance column='[Calculation_1410506105430505]' derivation='User' name='[usr:Calculation_1410506105430505:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Excedente % Total  Presup (copy)]' derivation='User' name='[usr:Excedente % Total  Presup (copy):qk:1]' pivot='key' type='quantitative'>
@@ -5193,8 +5221,8 @@
             <column-instance column='[Calculation_7990507133336336]' derivation='Sum' name='[sum:Calculation_7990507133336336:qk]' pivot='key' type='quantitative' />
             <column-instance column='[% YoY Gastos Excedentes (copy)]' derivation='User' name='[usr:% YoY Gastos Excedentes (copy):qk:3]' pivot='key' type='quantitative'>
               <table-calc ordering-type='Columns' />
-              <table-calc field='[textscan.42123.807260648200].[dif YoY Gastos Excedentes (copy)]' ordering-type='Columns' />
               <table-calc field='[textscan.42123.807260648200].[LastYr Excedentes (copy)]' ordering-field='[textscan.42123.807260648200].[ano_saldo]' ordering-type='Field' />
+              <table-calc field='[textscan.42123.807260648200].[dif YoY Gastos Excedentes (copy)]' ordering-type='Columns' />
             </column-instance>
             <column-instance column='[Excedente % Total Ingresos (copy)]' derivation='User' name='[usr:Excedente % Total Ingresos (copy):qk:1]' pivot='key' type='quantitative'>
               <table-calc ordering-type='Columns' />
@@ -5526,7 +5554,7 @@
         </color-one-way>
       </highlight>
     </window>
-    <window auto-hidden='0' class='worksheet' maximized='1' name='Convenio COMEX-CINDE-PROCOMER'>
+    <window auto-hidden='0' class='worksheet' maximized='0' name='Convenio COMEX-CINDE-PROCOMER'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -5592,7 +5620,7 @@
         </color-one-way>
       </highlight>
     </window>
-    <window auto-hidden='0' class='worksheet' maximized='0' name='Convenio Ingresos'>
+    <window auto-hidden='0' class='worksheet' maximized='1' name='Convenio Ingresos'>
       <cards>
         <edge name='left'>
           <strip size='160'>
