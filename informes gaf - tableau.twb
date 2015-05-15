@@ -16753,7 +16753,7 @@
         </color-one-way>
       </highlight>
     </window>
-    <window auto-hidden='0' class='worksheet' maximized='0' name='Otros Ingresos'>
+    <window auto-hidden='0' class='worksheet' maximized='1' name='Otros Ingresos'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -18616,7 +18616,7 @@
         <zone custom-title='true' mode='compact' name='' param='[Parameters].[Parameter 1]' type='paramctrl' />
       </zones>
     </window>
-    <window auto-hidden='0' class='dashboard' maximized='1' name='Ingresos Financieros'>
+    <window auto-hidden='0' class='dashboard' maximized='0' name='Ingresos Financieros'>
       <zones>
         <zone name='Ingresos Financieros y Otros'>
           <viewpoint>
