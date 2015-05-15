@@ -1,4 +1,4 @@
-cuentacontablecodigo,moneda,mes_saldo,ano_saldo,debitofisclocal,creditofisclocal
+cuentacontablecodigo,moneda,mes_saldo,ano_saldo,creditofisclocal,debitofisclocal
 105-000-000-000,CRC,12,2014,0,281154778
 137-002-001-000,CRC,12,2014,0,1424960450
 120-000-000-000,CRC,12,2014,0,137399955
