@@ -4310,7 +4310,7 @@
         <folder-item name='[REDUCCION_DOLAR]' type='field' />
         <folder-item name='[REDUCCION_LOCAL]' type='field' />
       </folder>
-      <layout dim-ordering='alphabetic' dim-percentage='0.535503' group-percentage='0.214497' measure-ordering='alphabetic' measure-percentage='0.0872781' show-structure='false' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.319527' group-percentage='0.122781' measure-ordering='alphabetic' measure-percentage='0.344675' show-structure='false' />
       <semantic-values>
         <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
       </semantic-values>
@@ -16679,7 +16679,7 @@
   </dashboards>
   <windows>
     <window class='schema' source-height='-1' />
-    <window auto-hidden='0' class='worksheet' maximized='0' name='E.R. Cols Presup - Ingresos Operativos'>
+    <window auto-hidden='0' class='worksheet' maximized='1' name='E.R. Cols Presup - Ingresos Operativos'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -16753,7 +16753,7 @@
         </color-one-way>
       </highlight>
     </window>
-    <window auto-hidden='0' class='worksheet' maximized='1' name='Otros Ingresos'>
+    <window auto-hidden='0' class='worksheet' maximized='0' name='Otros Ingresos'>
       <cards>
         <edge name='left'>
           <strip size='160'>
