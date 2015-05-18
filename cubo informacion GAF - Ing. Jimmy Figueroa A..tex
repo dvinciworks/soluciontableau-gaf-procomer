@@ -1,0 +1,138 @@
+\documentclass[spanish]{article}
+\usepackage[spanish]{babel} 
+\usepackage[latin1]{inputenc} 
+\usepackage{multicol}
+\usepackage[margin=0.65in]{geometry}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{booktabs}
+
+% somewhere in your document's header:
+% load package "multirow"
+\usepackage{multirow}
+
+% This command computes and creates a vertical space
+% depending on the number of rows to compensate for.
+% It makes use of the counter verticalcompensationrows
+% and the length \verticalcompensationlength which equals
+% \aboverulesep plus \belowrulesep
+\newlength{\verticalcompensationlength}
+\setlength{\verticalcompensationlength}{\aboverulesep}
+\addtolength{\verticalcompensationlength}{\belowrulesep}
+\newcounter{verticalcompensationrows}
+\newcommand{\verticalcompensation}[1]{%
+\setcounter{verticalcompensationrows}{#1}%
+\addtocounter{verticalcompensationrows}{-1}%
+\vspace*{-\value{verticalcompensationrows}\verticalcompensationlength}%
+}
+
+% This command reimplements \multirow to compensate
+% for the vertical offset, but looses some functionality
+% of the \multirow command (not discussed here).
+\newcommand{\multirowbt}[3]{%
+\multirow{#1}{#2}{\verticalcompensation{#1}#3}%
+}
+
+\usepackage[table]{xcolor}
+\usepackage{tabularx}
+
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+  
+\usepackage{background}
+\usepackage{float}
+
+\SetBgContents{\rule{360pt}{70pt}\includegraphics[height=3.0in, keepaspectratio=true]{/Users/jimmyfigueroa/Desktop/CEFA/dvinciworks.pdf}} % \includegraphics would be here
+\SetBgAngle{0}
+\SetBgPosition{current page.north}
+\SetBgOpacity{1}
+\SetBgScale{1}
+\SetBgColor{white}
+\SetBgVshift{-1.0cm}
+
+
+\pagestyle{plain}
+
+\begin{document}
+Informe Técnico
+\begin{center}\Large\textbf{Manual de Instalación y Uso de las Vistas Información de GAF sobre Informes Contables del ERP Exactus}\end{center}
+\begin{center}Por: Ing. Jimmy Figueroa A. \\ Consultor, Asesor y Data Scientist, dvinciworks.com (t.c.c. Kemonique S.A.) \emph{jimmyfigueroa@me.com}\end{center}
+\begin{center}\today\end{center}
+\author{Ing.Jimmy Figueroa}
+\abstract
+El presente documento resume los pasos para la instalación de las vistas de información GAF así como los pasos para su aprovechamiento por parte de los usuarios del Depto. de GAF. Al no disponer del licenciamiento del \verb|TableauSoftware|, la solución ha sido implementada en \verb|Tableu Public| combinándola con la generación de ficheros de Excel desde la misma base de datos del EXACTUS, aplicando algunos pasos manuales necesarios. La duración de dichos pasos es órdenes de magnitud mas eficiente que el escenario actual de los usuarios GAF en el que una \verb|macro de excel| tarda varias horas en ejecutar para generar los datos. Cuando PROCOMER adquiera \emph{Tableau Server y Tableau Desktop} estos pasos no serán necesarios y podrá reconectarse la solución del \verb|Tableau| directamente a la base de datos del EXACTUS.\\
+\begin{multicols}{2}
+\section{Generación de Ficheros}
+Las Vistas de Información GAF requieren que desde la base de datos del EXACTUS se genere 1 fichero \verb|.csv|, para generar los \emph{Presupuestos} y para generar los \emph{importes reales} ejecutados en el periodo.
+\newline Debido a que el presupuesto es modificado constantemente, incluso después de haber generado el cierre de un periodo, es conveniente siempre regenerar el fichero completo, en vez de incrementalmente. Se cargan únicamente los registros iguales o superiores al año indicado por el usuario e iguales o inferiores al mes de cierre que sea indicado por el usuario GAF. 
+\newline El fichero se genera cuando el usuario lo requiera, se sugiere al menos 1 vez por cada cierre contable mensual.
+
+\subsection{Requisitos previos}
+Esta sección no corresponde al usuario GAF. Si corresponde tomar acción al usuario de TI de PROCOMER. Requisitos necesarios una única vez y son verificados durante la instalación. Están listados aquí únicamente como documentación de respaldo para el depto. de TI de PROCOMER:
+\begin{enumerate}[1.]
+	\item El usuario debe tener derecho de acceso autenticado directamente por Windows al servidor Windows y a la Base Datos EXACTUS;
+	\item El usuario debe poder acceder la tabla ``PROCOMER.DETALLE\_PRESUPUESTO'';
+	\item El usuario debe poder acceder la tabla ``PROCOMER.SoftlandBI\_CG\_saldCuenContable'';
+	\item El usuario debe poder acceder el comando ``bcp'' desde la consola de comandos de Windows (no desde la consola de WindowsPowerShell);
+	\item 150 MB de espacio libre en disco duro de la PC que va a ejecutar las instrucciones.
+	\item \verb|SQL Server Agent| debe estar habilitado y el servicio para la base de datos EXACTUS debe estar en estado encendido. Para ello verifique el estatus en el \verb|Microsoft SQL Server Configuration Manager|.
+	\item El fichero \verb|activosfijos.csv| debe conformar mandatoriamente la estructura que se indica en el repositorio de GitHub https://github.com/dvinciworks/soluciontableau-gaf-procomer. No debe contener comas (\verb|,|) en los campos que indiquen montos y el encabezado a de ser respetado así como el tipo de datos que se indica en el archivo del repositorio mencionado.
+\end{enumerate}
+
+\subsection{Código fuente}
+El código fuente de todos los artefactos de software empleados en la solución están disponibles en el repositorio de \verb|github| aquí: 
+
+\newline \verb|  https://github.com/dvinciworks|
+\newline \verb|             /soluciontableau-gaf-procomer| 
+
+\subsection{Instalación de solución}
+Esta sección no le atañe al usuario GAF, pero si al usuario del Depto. de TI. Para instalar la solución previo a su utilización, hay que seguir las siguientes instrucciones:
+\begin{enumerate}
+	\item Crear directorio \verb|c:\soluciontableau|
+	\item Copiar el fichero \verb|generar_fichero_gaf.bat| al directorio \verb|c:\soluciontableau|
+	\item Editar el fichero y sustituir la instrucción que lee \verb|-S JIMMYFIGUER7A21\SQLEXPRESS2| en cada una de las líneas que inician con el enunciado \verb|bcp| por la instrucción \verb|-S <SERVIDORWINDOWS>\<SERVIDOR-SQL>| tomando dichos valores del entorno de PROCOMER. Hacer lo anterior dejando el resto de las hileras intactas. \newline La tabla \verb|vista_presup_temp| es creada automáticamente desde el procedimiento almacenado \newline \verb|   generar_vista_presupuesto|. \newline De igual manera, la tabla \verb|activosfijos_temp| es creada automáticamente por el procedimiento almacenado: \newline \verb|   cargar_fichero_activos_fijos|. \newline Ambos procedimientos almacenados son invocados desde el programa \verb|generar_fichero_gaf.bat|.
+	\item Conectarse al entorno de comandos \newline \verb|  SQL Server Mgmt Studio|
+	\item Crear cada comando \verb|SQL| y procedimiento almacenado en el siguiente orden:
+	\newline \verb| 1.  crear_tabla_activosfijos_temp.sql|
+	\newline \verb| 2.  crear_tabla_jimmy_| \newline \verb|       saldos_acumulados_epf.sql|
+	\newline \verb| 3.  creat tabla vista_presup_temp.sql|
+	\newline \verb| 4.  cargar_saldos_epf.sql|
+	\newline \verb| 5.  cargar_fichero_activosfijos.sql|
+	\newline \verb| 6.  cargar_fichero_activosfijos.bat|
+	\newline \verb| 7.  jimmy_saldCuenContable.sql|
+	\newline \verb| 8.  cargar_saldos_epf.sql|
+	\newline \verb| 9.  jimmy_tipos_cambio.sql| 
+	\newline \verb|10.  cargar_tipo_cambio.sql|
+    \newline \verb|11.  cargar_tipo_cambio.bat| 
+    \newline \verb|       -a <año> -m <mes> -t <tipo_cambio>| 
+	\newline \verb|12.  vista_real.sql|
+	\newline \verb|13.  vista_presupuesto.sql| 
+	\newline \verb|14.  vista_presup_and_real.sql| 
+	\newline \verb|15.  cargar_tipo_cambio.sql|  
+\end{enumerate}
+
+\subsection{Instrucciones para usuario GAF}  
+En esta sección, el usuario GAF si debe tomar acción. Para generar los ficheros se ejecutan las siguientes instrucciones cada vez que se requiera refrescar los datos:
+\begin{enumerate}[a.]
+	\item Ingresar a la consola de comandos de windows \verb|command| PowerShell no funciona, tiene que ser ventana comando windows. 
+	\item Navegar al directorio de solución \newline \verb|   cd c:\soluciontableau|
+	\item Ejecutar la siguiente instrucción para generar el fichero de presupuestos y ejecución real: \newline \verb|   generar_fichero_gaf.bat| \newline \verb|      -a <año> -m <mes> -t <tipo_cambio>| \newline Por ejemplo la instrucción siguiente: \newline \verb| generar_fichero_gaf.bat -a 2014 -m 2 -t 555| \newline generará un fichero de presupuesto y ejecución real con los registros a partir del año 2014 en adelante pero con el mes inferior o igual a Febrero y con un tipo de cambio de 555. 
+	\item Otro ejemplo con la instrucción siguiente: \newline \verb|generar_fichero_gaf.bat -a 2015 -m 1 -t 521.8| \newline generará un fichero de presupuesto y ejecución real con los registros a partir del año 2015 en adelante pero con el mes inferior o igual a Enero y con un tipo de cambio de 555.8. 
+	\item La anterior instrucción tarda aproximadamente de 4 a 6 minutos en ejecutar y genera un fichero llamado \verb|fichero_gaf.csv|;
+\end{enumerate}
+
+\subsection{Activos Fijos}
+Debido a que la \verb|Cuenta Contable 205-007-000-000| correspondiente a activos fijos, es distribuída cada més según un fichero externo a la base de datos del Exactus, y mantenida manualmente por el depto. de contabilidad de PROCOMER; se ha dispuesto como parte de la solución, la tabla \verb|activosfijos_temp| la cual deberá ser cargada con los registros del fichero \verb|activosfijos.csv| cada més.
+\newline Esta carga de datos está previamente contemplada en como parte del fichero \verb|generar_fichero_gaf.bat|, el cual dentro de sus instrucciones invoca al procedimiento almacenado en T-SQL \verb|exactus.dbo.cargar_fichero_activosfijos|.
+\newline Este aspecto del manejo de activosfijos dado su manipulación manual por fuera del sistema Exactus, deberá mantenerse en el futuro aún cuando se cuente con el licenciamiento del Tableau.
+\newline Es muy importante recordar que el fichero \verb|activosfijos.csv| debe grabarse en formato \verb|MS-DOS csv|, no confundir con el formato \verb|.csv| de excel o windows. De no seguirse esta instrucción, la carga de Activos Fijos no se realizará.
+
+\subsection{Infografico Tableau Public}
+La dirección del Infográfico es la siguiente dirección de enlace desde el navegador:
+\newline \verb|https://public.tableau.com/views/informesgaf-tableau/|\newline \verb|ComparativoResultados?:embed=y&:| \newline \verb|showTabs=y&:display_count=yes|
+\end{multicols}{2}
+
+\end{document}
