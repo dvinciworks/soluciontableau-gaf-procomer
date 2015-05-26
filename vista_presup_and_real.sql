@@ -1,17 +1,36 @@
 CREATE VIEW presup_and_real 
 AS 
-  (SELECT r.centrocostocodigo, 
-          r.cuentacontablecodigo, 
-          r.centro_costo AS centro_costo_desc, 
-          r.cuenta_contable, 
+  (SELECT 
+          case 
+		    when r.centrocostocodigo is null then p.centro_costo
+			else r.centrocostocodigo
+		  end as centrocostocodigo, 
+          case 
+		    when r.cuentacontablecodigo  is null then p.partida
+			else r.cuentacontablecodigo 
+		  end as cuentacontablecodigo, 
+          case 
+		    when  r.centro_costo  is null then p.centro_costo_descripcion
+			else  r.centro_costo 
+		  end AS centro_costo_desc, 
+          case 
+		    when r.cuenta_contable  is null then p.partida_descripcion
+			else r.cuenta_contable 
+		  end AS cuenta_contable, 
 		  'CRC' as moneda,
           r.tipo_cuenta, 
           r.subtipo_cuenta, 
           r.saldo_normal, 
           r.fecha_saldo, 
-          r.mes_saldo, 
+          case 
+		    when r.mes_saldo  is null then p.mes_fecha
+			else r.mes_saldo 
+		  end AS mes_saldo, 
           r.trimestre_saldo, 
-          r.ano_saldo, 
+          case 
+		    when r.ano_saldo  is null then p.ano_fecha
+			else r.ano_saldo 
+		  end AS ano_saldo, 
           r.saldoinifiscallocal, 
           r.debitofisclocal, 
           r.creditofisclocal, 
@@ -72,18 +91,37 @@ AS
 							)
 where r.moneda = 'CRC' or r.moneda is null
 union all
-SELECT r.centrocostocodigo, 
-          r.cuentacontablecodigo, 
-          r.centro_costo AS centro_costo_desc, 
-          r.cuenta_contable, 
+SELECT 
+          case 
+		    when r.centrocostocodigo is null then p.centro_costo
+			else r.centrocostocodigo
+		  end as centrocostocodigo, 
+          case 
+		    when r.cuentacontablecodigo  is null then p.partida
+			else r.cuentacontablecodigo 
+		  end as cuentacontablecodigo, 
+          case 
+		    when  r.centro_costo  is null then p.centro_costo_descripcion
+			else  r.centro_costo 
+		  end AS centro_costo_desc, 
+          case 
+		    when r.cuenta_contable  is null then p.partida_descripcion
+			else r.cuenta_contable 
+		  end AS cuenta_contable, 
 		  'USD' as moneda,
           r.tipo_cuenta, 
           r.subtipo_cuenta, 
           r.saldo_normal, 
           r.fecha_saldo, 
-          r.mes_saldo, 
+          case 
+		    when r.mes_saldo  is null then p.mes_fecha
+			else r.mes_saldo 
+		  end AS mes_saldo, 
           r.trimestre_saldo, 
-          r.ano_saldo, 
+          case 
+		    when r.ano_saldo  is null then p.ano_fecha
+			else r.ano_saldo 
+		  end AS ano_saldo, 
           r.saldoinifiscallocal, 
           r.debitofisclocal, 
           r.creditofisclocal, 
