@@ -95,6 +95,10 @@ Esta sección no le atañe al usuario GAF, pero si al usuario del Depto. de TI. Pa
 	\item Crear directorio \verb|c:\soluciontableau|
 	\item Copiar el fichero \verb|generar_fichero_gaf.bat| al directorio \verb|c:\soluciontableau|
 	\item Editar el fichero y sustituir la instrucción que lee \verb|-S JIMMYFIGUER7A21\SQLEXPRESS2| en cada una de las líneas que inician con el enunciado \verb|bcp| por la instrucción \verb|-S <SERVIDORWINDOWS>\<SERVIDOR-SQL>| tomando dichos valores del entorno de PROCOMER. Hacer lo anterior dejando el resto de las hileras intactas. \newline La tabla \verb|vista_presup_temp| es creada automáticamente desde el procedimiento almacenado \newline \verb|   generar_vista_presupuesto|. \newline De igual manera, la tabla \verb|activosfijos_temp| es creada automáticamente por el procedimiento almacenado: \newline \verb|   cargar_fichero_activos_fijos|. \newline Ambos procedimientos almacenados son invocados desde el programa \verb|generar_fichero_gaf.bat|.
+	\item Copiar los ficheros \verb|.csv| siguientes en el directorio \verb|c:\soluciontableau\|:
+	\newline \verb|     activosfijos.csv|
+	\newline \verb|     canon.csv|
+    \newline \verb|     formularios.csv|
 	\item Conectarse al entorno de comandos \newline \verb|  SQL Server Mgmt Studio|
 	\item Crear cada comando \verb|SQL| y procedimiento almacenado en el siguiente orden:
 	\newline \verb| 1.  crear_tabla_activosfijos_temp.sql|
