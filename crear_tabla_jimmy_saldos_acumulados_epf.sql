@@ -1,7 +1,7 @@
 USE [EXACTUS]
 GO
 
-/****** Object:  Table [dbo].[jimmy_saldos_acumulados_epf]    Script Date: 5/14/2015 10:16:13 PM ******/
+/****** Object:  Table [dbo].[jimmy_saldos_acumulados_epf]    Script Date: 5/26/2015 7:52:18 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -14,7 +14,8 @@ CREATE TABLE [dbo].[jimmy_saldos_acumulados_epf](
 	[mes_saldo] [int] NULL,
 	[ano_saldo] [int] NULL,
 	[creditofisclocal] [real] NULL,
-	[debitofisclocal] [real] NULL
+	[debitofisclocal] [real] NULL,
+	[cuenta_contable] [nvarchar](200) NULL
 ) ON [PRIMARY]
 
 GO
