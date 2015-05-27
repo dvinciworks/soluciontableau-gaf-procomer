@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  26 MAY 2015 18:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  26 MAY 2015 20:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -563,31 +563,31 @@ Package pdftex.def Info: /Users/jimmyfigueroa/Desktop/CEFA/dvinciworks.pdf used 
  [1
 
 {/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </Users/jimmyfigueroa/Desktop/CEFA/dvinciworks.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 133--137
+Underfull \hbox (badness 10000) in paragraph at lines 139--143
 \OT1/cmr/m/n/9 Es muy im-por-tan-te re-cor-dar que el fi-che-ro
  []
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:138: LaTeX Error: There's no line here to end.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:144: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.138 \newline
+l.144 \newline
                Pasos para generar el fichero \verb|activosfijos.csv|:
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:143: Package xkeyval Error: `left' undefined in families `Gin'.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:149: Package xkeyval Error: `left' undefined in families `Gin'.
 
 See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.143 ...raphics[width=\linewidth,left]{paso1.png}
+l.149 ...raphics[width=\linewidth,left]{paso1.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -595,25 +595,25 @@ If that doesn't work, type  X <return>  to quit.
 <paso1.png, id=31, 603.25375pt x 372.39125pt>
 File: paso1.png Graphic file (type png)
  <use paso1.png>
-Package pdftex.def Info: paso1.png used on input line 143.
+Package pdftex.def Info: paso1.png used on input line 149.
 (pdftex.def)             Requested size: 208.17241pt x 128.50352pt.
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:144: LaTeX Error: \caption outside float.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:150: LaTeX Error: \caption outside float.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.144  \caption
+l.150  \caption
                 {Figura 1. Excel}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:144: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:150: Undefined control sequence.
 \caption ... \endcsname \fi \fi \@dblarg {\@tempf 
                                                   \@captype }
-l.144  \caption
+l.150  \caption
                 {Figura 1. Excel}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -621,10 +621,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:144: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:150: Undefined control sequence.
 \caption ...e \fi \fi \@dblarg {\@tempf \@captype 
                                                   }
-l.144  \caption
+l.150  \caption
                 {Figura 1. Excel}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -633,24 +633,24 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 145.
+(Font)              <9> on input line 151.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 145.
+(Font)              <6> on input line 151.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 145.
+(Font)              <5> on input line 151.
 
-Underfull \hbox (badness 10000) in paragraph at lines 147--148
+Underfull \hbox (badness 10000) in paragraph at lines 153--154
 []\OT1/cmr/m/n/9 Importar el fi-che-ro []\OT1/cmtt/m/n/9 activosfijos.csv \OT1/cmr/m/n/9 en
  []
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:150: Package xkeyval Error: `left' undefined in families `Gin'.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:156: Package xkeyval Error: `left' undefined in families `Gin'.
 
 See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.150 ...raphics[width=\linewidth,left]{paso2.png}
+l.156 ...raphics[width=\linewidth,left]{paso2.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -658,25 +658,25 @@ If that doesn't work, type  X <return>  to quit.
 <paso2.png, id=32, 903.375pt x 697.60625pt>
 File: paso2.png Graphic file (type png)
  <use paso2.png>
-Package pdftex.def Info: paso2.png used on input line 150.
+Package pdftex.def Info: paso2.png used on input line 156.
 (pdftex.def)             Requested size: 208.17241pt x 160.75475pt.
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:151: LaTeX Error: \caption outside float.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:157: LaTeX Error: \caption outside float.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.151  \caption
+l.157  \caption
                 {Figura 2. Importar fichero activosfijos.csv en Excel}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:151: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:157: Undefined control sequence.
 \caption ... \endcsname \fi \fi \@dblarg {\@tempf 
                                                   \@captype }
-l.151  \caption
+l.157  \caption
                 {Figura 2. Importar fichero activosfijos.csv en Excel}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -684,10 +684,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:151: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:157: Undefined control sequence.
 \caption ...e \fi \fi \@dblarg {\@tempf \@captype 
                                                   }
-l.151  \caption
+l.157  \caption
                 {Figura 2. Importar fichero activosfijos.csv en Excel}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -696,13 +696,13 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:157: Package xkeyval Error: `left' undefined in families `Gin'.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:163: Package xkeyval Error: `left' undefined in families `Gin'.
 
 See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.157 ...raphics[width=\linewidth,left]{paso3.png}
+l.163 ...raphics[width=\linewidth,left]{paso3.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -710,25 +710,25 @@ If that doesn't work, type  X <return>  to quit.
 <paso3.png, id=33, 584.1825pt x 439.6425pt>
 File: paso3.png Graphic file (type png)
  <use paso3.png>
-Package pdftex.def Info: paso3.png used on input line 157.
+Package pdftex.def Info: paso3.png used on input line 163.
 (pdftex.def)             Requested size: 208.17241pt x 156.66786pt.
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:158: LaTeX Error: \caption outside float.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:164: LaTeX Error: \caption outside float.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.158  \caption
+l.164  \caption
                 {Figura 3. Import Wizard - Asistente de Importación}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:158: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:164: Undefined control sequence.
 \caption ... \endcsname \fi \fi \@dblarg {\@tempf 
                                                   \@captype }
-l.158  \caption
+l.164  \caption
                 {Figura 3. Import Wizard - Asistente de Importación}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -736,63 +736,11 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:158: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:164: Undefined control sequence.
 \caption ...e \fi \fi \@dblarg {\@tempf \@captype 
                                                   }
-l.158  \caption
+l.164  \caption
                 {Figura 3. Import Wizard - Asistente de Importación}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:164: Package xkeyval Error: `left' undefined in families `Gin'.
-
-See the xkeyval package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.164 ...raphics[width=\linewidth,left]{paso4.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-<paso4.png, id=34, 583.17876pt x 440.64626pt>
-File: paso4.png Graphic file (type png)
- <use paso4.png>
-Package pdftex.def Info: paso4.png used on input line 164.
-(pdftex.def)             Requested size: 208.17241pt x 157.29451pt.
-
-
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:165: LaTeX Error: \caption outside float.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.165  \caption
-                {Figura 4. Import Wizard - Paso 2}
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:165: Undefined control sequence.
-\caption ... \endcsname \fi \fi \@dblarg {\@tempf 
-                                                  \@captype }
-l.165  \caption
-                {Figura 4. Import Wizard - Paso 2}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:165: Undefined control sequence.
-\caption ...e \fi \fi \@dblarg {\@tempf \@captype 
-                                                  }
-l.165  \caption
-                {Figura 4. Import Wizard - Paso 2}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -801,17 +749,69 @@ and I'll forget about whatever was undefined.
 
 File: /Users/jimmyfigueroa/Desktop/CEFA/dvinciworks.pdf Graphic file (type pdf)
 <use /Users/jimmyfigueroa/Desktop/CEFA/dvinciworks.pdf>
-Package pdftex.def Info: /Users/jimmyfigueroa/Desktop/CEFA/dvinciworks.pdf used on input line 167.
+Package pdftex.def Info: /Users/jimmyfigueroa/Desktop/CEFA/dvinciworks.pdf used on input line 166.
 (pdftex.def)             Requested size: 167.53032pt x 216.81pt.
- [2 <./paso1.png> <./paso2.png> <./paso3.png>]
+ [2 <./paso1.png> <./paso2.png>]
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:171: Package xkeyval Error: `left' undefined in families `Gin'.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:170: Package xkeyval Error: `left' undefined in families `Gin'.
 
 See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.171 ...raphics[width=\linewidth,left]{paso5.png}
+l.170 ...raphics[width=\linewidth,left]{paso4.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+<paso4.png, id=37, 583.17876pt x 440.64626pt>
+File: paso4.png Graphic file (type png)
+ <use paso4.png>
+Package pdftex.def Info: paso4.png used on input line 170.
+(pdftex.def)             Requested size: 208.17241pt x 157.29451pt.
+
+
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:171: LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.171  \caption
+                {Figura 4. Import Wizard - Paso 2}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:171: Undefined control sequence.
+\caption ... \endcsname \fi \fi \@dblarg {\@tempf 
+                                                  \@captype }
+l.171  \caption
+                {Figura 4. Import Wizard - Paso 2}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:171: Undefined control sequence.
+\caption ...e \fi \fi \@dblarg {\@tempf \@captype 
+                                                  }
+l.171  \caption
+                {Figura 4. Import Wizard - Paso 2}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:177: Package xkeyval Error: `left' undefined in families `Gin'.
+
+See the xkeyval package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.177 ...raphics[width=\linewidth,left]{paso5.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -819,25 +819,25 @@ If that doesn't work, type  X <return>  to quit.
 <paso5.png, id=38, 316.18124pt x 271.0125pt>
 File: paso5.png Graphic file (type png)
  <use paso5.png>
-Package pdftex.def Info: paso5.png used on input line 171.
+Package pdftex.def Info: paso5.png used on input line 177.
 (pdftex.def)             Requested size: 208.17241pt x 178.43459pt.
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:172: LaTeX Error: \caption outside float.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:178: LaTeX Error: \caption outside float.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.172  \caption
+l.178  \caption
                 {Figura 5. Ventana ''Import Data''}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:172: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:178: Undefined control sequence.
 \caption ... \endcsname \fi \fi \@dblarg {\@tempf 
                                                   \@captype }
-l.172  \caption
+l.178  \caption
                 {Figura 5. Ventana ''Import Data''}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -845,10 +845,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:172: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:178: Undefined control sequence.
 \caption ...e \fi \fi \@dblarg {\@tempf \@captype 
                                                   }
-l.172  \caption
+l.178  \caption
                 {Figura 5. Ventana ''Import Data''}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -857,13 +857,13 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:180: Package xkeyval Error: `left' undefined in families `Gin'.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:186: Package xkeyval Error: `left' undefined in families `Gin'.
 
 See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.180 ...raphics[width=\linewidth,left]{paso6.png}
+l.186 ...raphics[width=\linewidth,left]{paso6.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -871,25 +871,25 @@ If that doesn't work, type  X <return>  to quit.
 <paso6.png, id=39, 710.655pt x 479.7925pt>
 File: paso6.png Graphic file (type png)
  <use paso6.png>
-Package pdftex.def Info: paso6.png used on input line 180.
+Package pdftex.def Info: paso6.png used on input line 186.
 (pdftex.def)             Requested size: 208.17241pt x 140.54189pt.
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:181: LaTeX Error: \caption outside float.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:187: LaTeX Error: \caption outside float.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.181  \caption
+l.187  \caption
                 {Figura 6. Ventana ``Guardar Como'' CSV (MS-DOS)}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:181: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:187: Undefined control sequence.
 \caption ... \endcsname \fi \fi \@dblarg {\@tempf 
                                                   \@captype }
-l.181  \caption
+l.187  \caption
                 {Figura 6. Ventana ``Guardar Como'' CSV (MS-DOS)}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -897,10 +897,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:181: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:187: Undefined control sequence.
 \caption ...e \fi \fi \@dblarg {\@tempf \@captype 
                                                   }
-l.181  \caption
+l.187  \caption
                 {Figura 6. Ventana ``Guardar Como'' CSV (MS-DOS)}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -909,13 +909,13 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:188: Package xkeyval Error: `left' undefined in families `Gin'.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:194: Package xkeyval Error: `left' undefined in families `Gin'.
 
 See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.188 ...h,left]{formato-tabular-activosfijos.png}
+l.194 ...h,left]{formato-tabular-activosfijos.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -923,25 +923,25 @@ If that doesn't work, type  X <return>  to quit.
 <formato-tabular-activosfijos.png, id=40, 828.09375pt x 390.45876pt>
 File: formato-tabular-activosfijos.png Graphic file (type png)
  <use formato-tabular-activosfijos.png>
-Package pdftex.def Info: formato-tabular-activosfijos.png used on input line 188.
+Package pdftex.def Info: formato-tabular-activosfijos.png used on input line 194.
 (pdftex.def)             Requested size: 208.17241pt x 98.15662pt.
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:189: LaTeX Error: \caption outside float.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:195: LaTeX Error: \caption outside float.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.189  \caption
+l.195  \caption
                 {Figura 7. Formato correcto fichero activosfijos.csv}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:189: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:195: Undefined control sequence.
 \caption ... \endcsname \fi \fi \@dblarg {\@tempf 
                                                   \@captype }
-l.189  \caption
+l.195  \caption
                 {Figura 7. Formato correcto fichero activosfijos.csv}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -949,10 +949,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:189: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:195: Undefined control sequence.
 \caption ...e \fi \fi \@dblarg {\@tempf \@captype 
                                                   }
-l.189  \caption
+l.195  \caption
                 {Figura 7. Formato correcto fichero activosfijos.csv}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -961,67 +961,76 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (4.45012pt too wide) in paragraph at lines 200--201
-[]\OT1/cmtt/m/n/9 generar_fichero_gaf.bat -a 2015 -m 1 -t 521.8 
+Underfull \hbox (badness 10000) in paragraph at lines 200--202
+[]\OT1/cmr/m/n/9 Existen 2 fi-che-ros adi-cio-na-les []\OT1/cmtt/m/n/9 canon.csv \OT1/cmr/m/n/9 y
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 205--206
+Overfull \hbox (4.45012pt too wide) in paragraph at lines 211--212
+[]\OT1/cmtt/m/n/9 generar_fichero_gaf.bat -a 2015 -m 1 -t 521.8 
+ []
+
+File: /Users/jimmyfigueroa/Desktop/CEFA/dvinciworks.pdf Graphic file (type pdf)
+<use /Users/jimmyfigueroa/Desktop/CEFA/dvinciworks.pdf>
+Package pdftex.def Info: /Users/jimmyfigueroa/Desktop/CEFA/dvinciworks.pdf used on input line 212.
+(pdftex.def)             Requested size: 167.53032pt x 216.81pt.
+ [3 <./paso3.png> <./paso4.png> <./paso5.png> <./paso6.png> <./formato-tabular-activosfijos.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 216--217
 []\OT1/cmr/m/n/9 Se ha apro-vi-sio-na-do una cuen-ta pa-ra PRO-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 205--206
+Underfull \hbox (badness 10000) in paragraph at lines 216--217
 \OT1/cmr/m/n/9 CO-MER en el por-tal p^^Subli-co de Ta-bleau
  []
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:207: LaTeX Error: There's no line here to end.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:218: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.207 \newline
+l.218 \newline
                Pasos a seguir para refrescar y publicar el infográfico:
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:213: Package xkeyval Error: `left' undefined in families `Gin'.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:224: Package xkeyval Error: `left' undefined in families `Gin'.
 
 See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.213 ...raphics[width=\linewidth,left]{step1.png}
+l.224 ...raphics[width=\linewidth,left]{step1.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-<step1.png, id=41, 810.02625pt x 493.845pt>
+<step1.png, id=44, 810.02625pt x 493.845pt>
 File: step1.png Graphic file (type png)
  <use step1.png>
-Package pdftex.def Info: step1.png used on input line 213.
+Package pdftex.def Info: step1.png used on input line 224.
 (pdftex.def)             Requested size: 208.17241pt x 126.91217pt.
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:214: LaTeX Error: \caption outside float.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:225: LaTeX Error: \caption outside float.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.214  \caption
+l.225  \caption
                 {Figura 8. Abrir fichero ``informes gaf tableau'' con Tablea...
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:214: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:225: Undefined control sequence.
 \caption ... \endcsname \fi \fi \@dblarg {\@tempf 
                                                   \@captype }
-l.214  \caption
+l.225  \caption
                 {Figura 8. Abrir fichero ``informes gaf tableau'' con Tablea...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1029,10 +1038,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:214: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:225: Undefined control sequence.
 \caption ...e \fi \fi \@dblarg {\@tempf \@captype 
                                                   }
-l.214  \caption
+l.225  \caption
                 {Figura 8. Abrir fichero ``informes gaf tableau'' con Tablea...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1040,19 +1049,14 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-File: /Users/jimmyfigueroa/Desktop/CEFA/dvinciworks.pdf Graphic file (type pdf)
-<use /Users/jimmyfigueroa/Desktop/CEFA/dvinciworks.pdf>
-Package pdftex.def Info: /Users/jimmyfigueroa/Desktop/CEFA/dvinciworks.pdf used on input line 216.
-(pdftex.def)             Requested size: 167.53032pt x 216.81pt.
- [3 <./paso4.png> <./paso5.png> <./paso6.png> <./formato-tabular-activosfijos.png>]
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:220: Package xkeyval Error: `left' undefined in families `Gin'.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:231: Package xkeyval Error: `left' undefined in families `Gin'.
 
 See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.220 ...raphics[width=\linewidth,left]{step3.png}
+l.231 ...raphics[width=\linewidth,left]{step3.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1060,25 +1064,25 @@ If that doesn't work, type  X <return>  to quit.
 <step3.png, id=45, 624.3325pt x 391.4625pt>
 File: step3.png Graphic file (type png)
  <use step3.png>
-Package pdftex.def Info: step3.png used on input line 220.
+Package pdftex.def Info: step3.png used on input line 231.
 (pdftex.def)             Requested size: 208.17241pt x 130.52101pt.
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:221: LaTeX Error: \caption outside float.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:232: LaTeX Error: \caption outside float.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.221  \caption
+l.232  \caption
                 {Figura 9. Refrescar los datos de la conexión}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:221: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:232: Undefined control sequence.
 \caption ... \endcsname \fi \fi \@dblarg {\@tempf 
                                                   \@captype }
-l.221  \caption
+l.232  \caption
                 {Figura 9. Refrescar los datos de la conexión}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1086,10 +1090,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:221: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:232: Undefined control sequence.
 \caption ...e \fi \fi \@dblarg {\@tempf \@captype 
                                                   }
-l.221  \caption
+l.232  \caption
                 {Figura 9. Refrescar los datos de la conexión}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1098,18 +1102,18 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (3.16791pt too wide) in paragraph at lines 224--225
+Overfull \hbox (3.16791pt too wide) in paragraph at lines 235--236
 \OT1/cmr/m/n/9 p^^Subli-co, in-di-can-do el []\OT1/cmtt/m/n/9 usuario: conta@procomer.com
  []
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:227: Package xkeyval Error: `left' undefined in families `Gin'.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:238: Package xkeyval Error: `left' undefined in families `Gin'.
 
 See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.227 ...raphics[width=\linewidth,left]{step4.png}
+l.238 ...raphics[width=\linewidth,left]{step4.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1117,25 +1121,25 @@ If that doesn't work, type  X <return>  to quit.
 <step4.png, id=46, 474.77374pt x 367.3725pt>
 File: step4.png Graphic file (type png)
  <use step4.png>
-Package pdftex.def Info: step4.png used on input line 227.
+Package pdftex.def Info: step4.png used on input line 238.
 (pdftex.def)             Requested size: 208.17241pt x 161.07822pt.
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:228: LaTeX Error: \caption outside float.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:239: LaTeX Error: \caption outside float.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.228  \caption
+l.239  \caption
                 {Figura 10. Guardar los datos en el portal público de Tableau}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:228: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:239: Undefined control sequence.
 \caption ... \endcsname \fi \fi \@dblarg {\@tempf 
                                                   \@captype }
-l.228  \caption
+l.239  \caption
                 {Figura 10. Guardar los datos en el portal público de Tableau}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1143,10 +1147,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:228: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:239: Undefined control sequence.
 \caption ...e \fi \fi \@dblarg {\@tempf \@captype 
                                                   }
-l.228  \caption
+l.239  \caption
                 {Figura 10. Guardar los datos en el portal público de Tableau}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1155,13 +1159,13 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:232: Package xkeyval Error: `left' undefined in families `Gin'.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:243: Package xkeyval Error: `left' undefined in families `Gin'.
 
 See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.232 ...raphics[width=\linewidth,left]{step5.png}
+l.243 ...raphics[width=\linewidth,left]{step5.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1169,25 +1173,25 @@ If that doesn't work, type  X <return>  to quit.
 <step5.png, id=47, 553.06625pt x 301.125pt>
 File: step5.png Graphic file (type png)
  <use step5.png>
-Package pdftex.def Info: step5.png used on input line 232.
+Package pdftex.def Info: step5.png used on input line 243.
 (pdftex.def)             Requested size: 208.17241pt x 113.3397pt.
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:233: LaTeX Error: \caption outside float.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:244: LaTeX Error: \caption outside float.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.233  \caption
+l.244  \caption
                 {Figura 11. Indicar Usuario y Password de la cuenta de PROCO...
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:233: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:244: Undefined control sequence.
 \caption ... \endcsname \fi \fi \@dblarg {\@tempf 
                                                   \@captype }
-l.233  \caption
+l.244  \caption
                 {Figura 11. Indicar Usuario y Password de la cuenta de PROCO...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1195,10 +1199,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:233: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:244: Undefined control sequence.
 \caption ...e \fi \fi \@dblarg {\@tempf \@captype 
                                                   }
-l.233  \caption
+l.244  \caption
                 {Figura 11. Indicar Usuario y Password de la cuenta de PROCO...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1207,18 +1211,18 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 5711) in paragraph at lines 241--242
+Underfull \hbox (badness 5711) in paragraph at lines 252--253
 []\OT1/cmr/m/n/9 Ingresar al na-ve-ga-dor in-di-can-do la di-rec-ci^^Son
  []
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:244: Package xkeyval Error: `left' undefined in families `Gin'.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:255: Package xkeyval Error: `left' undefined in families `Gin'.
 
 See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.244 ...raphics[width=\linewidth,left]{step6.png}
+l.255 ...raphics[width=\linewidth,left]{step6.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1226,25 +1230,25 @@ If that doesn't work, type  X <return>  to quit.
 <step6.png, id=48, 1258.7025pt x 643.40375pt>
 File: step6.png Graphic file (type png)
  <use step6.png>
-Package pdftex.def Info: step6.png used on input line 244.
+Package pdftex.def Info: step6.png used on input line 255.
 (pdftex.def)             Requested size: 208.17241pt x 106.40247pt.
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:245: LaTeX Error: \caption outside float.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:256: LaTeX Error: \caption outside float.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.245  \caption
+l.256  \caption
                 {Figura 12. Portal público de Tableau}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:245: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:256: Undefined control sequence.
 \caption ... \endcsname \fi \fi \@dblarg {\@tempf 
                                                   \@captype }
-l.245  \caption
+l.256  \caption
                 {Figura 12. Portal público de Tableau}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1252,10 +1256,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:245: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:256: Undefined control sequence.
 \caption ...e \fi \fi \@dblarg {\@tempf \@captype 
                                                   }
-l.245  \caption
+l.256  \caption
                 {Figura 12. Portal público de Tableau}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1264,13 +1268,13 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:251: Package xkeyval Error: `left' undefined in families `Gin'.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:262: Package xkeyval Error: `left' undefined in families `Gin'.
 
 See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.251 ...raphics[width=\linewidth,left]{step7.png}
+l.262 ...raphics[width=\linewidth,left]{step7.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1278,25 +1282,25 @@ If that doesn't work, type  X <return>  to quit.
 <step7.png, id=49, 853.1875pt x 601.24625pt>
 File: step7.png Graphic file (type png)
  <use step7.png>
-Package pdftex.def Info: step7.png used on input line 251.
+Package pdftex.def Info: step7.png used on input line 262.
 (pdftex.def)             Requested size: 208.17241pt x 146.69652pt.
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:252: LaTeX Error: \caption outside float.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:263: LaTeX Error: \caption outside float.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.252  \caption
+l.263  \caption
                 {Figura 13. Infografico dentro del portal público de Tableau}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:252: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:263: Undefined control sequence.
 \caption ... \endcsname \fi \fi \@dblarg {\@tempf 
                                                   \@captype }
-l.252  \caption
+l.263  \caption
                 {Figura 13. Infografico dentro del portal público de Tableau}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1304,63 +1308,11 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:252: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:263: Undefined control sequence.
 \caption ...e \fi \fi \@dblarg {\@tempf \@captype 
                                                   }
-l.252  \caption
+l.263  \caption
                 {Figura 13. Infografico dentro del portal público de Tableau}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:258: Package xkeyval Error: `left' undefined in families `Gin'.
-
-See the xkeyval package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.258 ...raphics[width=\linewidth,left]{step8.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-<step8.png, id=50, 818.05624pt x 594.22pt>
-File: step8.png Graphic file (type png)
- <use step8.png>
-Package pdftex.def Info: step8.png used on input line 258.
-(pdftex.def)             Requested size: 208.17241pt x 151.21127pt.
-
-
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:259: LaTeX Error: \caption outside float.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.259  \caption
-                {Figura 14. Acceder infográfico desde portal público}
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:259: Undefined control sequence.
-\caption ... \endcsname \fi \fi \@dblarg {\@tempf 
-                                                  \@captype }
-l.259  \caption
-                {Figura 14. Acceder infográfico desde portal público}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:259: Undefined control sequence.
-\caption ...e \fi \fi \@dblarg {\@tempf \@captype 
-                                                  }
-l.259  \caption
-                {Figura 14. Acceder infográfico desde portal público}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1369,17 +1321,69 @@ and I'll forget about whatever was undefined.
 
 File: /Users/jimmyfigueroa/Desktop/CEFA/dvinciworks.pdf Graphic file (type pdf)
 <use /Users/jimmyfigueroa/Desktop/CEFA/dvinciworks.pdf>
-Package pdftex.def Info: /Users/jimmyfigueroa/Desktop/CEFA/dvinciworks.pdf used on input line 261.
+Package pdftex.def Info: /Users/jimmyfigueroa/Desktop/CEFA/dvinciworks.pdf used on input line 265.
 (pdftex.def)             Requested size: 167.53032pt x 216.81pt.
- [4 <./step1.png> <./step3.png> <./step4.png> <./step5.png> <./step6.png> <./step7.png>]
+ [4 <./step1.png> <./step3.png> <./step4.png> <./step5.png> <./step6.png>]
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:265: Package xkeyval Error: `left' undefined in families `Gin'.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:269: Package xkeyval Error: `left' undefined in families `Gin'.
 
 See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.265 ...raphics[width=\linewidth,left]{step9.png}
+l.269 ...raphics[width=\linewidth,left]{step8.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+<step8.png, id=53, 818.05624pt x 594.22pt>
+File: step8.png Graphic file (type png)
+ <use step8.png>
+Package pdftex.def Info: step8.png used on input line 269.
+(pdftex.def)             Requested size: 208.17241pt x 151.21127pt.
+
+
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:270: LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.270  \caption
+                {Figura 14. Acceder infográfico desde portal público}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:270: Undefined control sequence.
+\caption ... \endcsname \fi \fi \@dblarg {\@tempf 
+                                                  \@captype }
+l.270  \caption
+                {Figura 14. Acceder infográfico desde portal público}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:270: Undefined control sequence.
+\caption ...e \fi \fi \@dblarg {\@tempf \@captype 
+                                                  }
+l.270  \caption
+                {Figura 14. Acceder infográfico desde portal público}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:276: Package xkeyval Error: `left' undefined in families `Gin'.
+
+See the xkeyval package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.276 ...raphics[width=\linewidth,left]{step9.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1387,25 +1391,25 @@ If that doesn't work, type  X <return>  to quit.
 <step9.png, id=54, 1312.905pt x 646.415pt>
 File: step9.png Graphic file (type png)
  <use step9.png>
-Package pdftex.def Info: step9.png used on input line 265.
+Package pdftex.def Info: step9.png used on input line 276.
 (pdftex.def)             Requested size: 208.17241pt x 102.49147pt.
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:266: LaTeX Error: \caption outside float.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:277: LaTeX Error: \caption outside float.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.266  \caption
+l.277  \caption
                 {Figura 15. Infográfico accedido desde el navegador}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:266: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:277: Undefined control sequence.
 \caption ... \endcsname \fi \fi \@dblarg {\@tempf 
                                                   \@captype }
-l.266  \caption
+l.277  \caption
                 {Figura 15. Infográfico accedido desde el navegador}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1413,10 +1417,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:266: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:277: Undefined control sequence.
 \caption ...e \fi \fi \@dblarg {\@tempf \@captype 
                                                   }
-l.266  \caption
+l.277  \caption
                 {Figura 15. Infográfico accedido desde el navegador}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1425,13 +1429,13 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:284: Package xkeyval Error: `left' undefined in families `Gin'.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:295: Package xkeyval Error: `left' undefined in families `Gin'.
 
 See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.284 ...aphics[width=\linewidth,left]{step11.png}
+l.295 ...aphics[width=\linewidth,left]{step11.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1439,25 +1443,25 @@ If that doesn't work, type  X <return>  to quit.
 <step11.png, id=55, 375.4025pt x 225.84375pt>
 File: step11.png Graphic file (type png)
  <use step11.png>
-Package pdftex.def Info: step11.png used on input line 284.
+Package pdftex.def Info: step11.png used on input line 295.
 (pdftex.def)             Requested size: 230.17241pt x 138.47437pt.
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:285: LaTeX Error: \caption outside float.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:296: LaTeX Error: \caption outside float.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.285  \caption
+l.296  \caption
                 {Figura 16. Compartir enlace directo (link)}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:285: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:296: Undefined control sequence.
 \caption ... \endcsname \fi \fi \@dblarg {\@tempf 
                                                   \@captype }
-l.285  \caption
+l.296  \caption
                 {Figura 16. Compartir enlace directo (link)}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1465,10 +1469,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:285: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:296: Undefined control sequence.
 \caption ...e \fi \fi \@dblarg {\@tempf \@captype 
                                                   }
-l.285  \caption
+l.296  \caption
                 {Figura 16. Compartir enlace directo (link)}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1477,26 +1481,26 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:289: LaTeX Error: There's no line here to end.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:300: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.289 \newline
+l.300 \newline
                Para compartir un \verb|.PDF| de todo el informe, navegar hac...
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:292: Package xkeyval Error: `left' undefined in families `Gin'.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:303: Package xkeyval Error: `left' undefined in families `Gin'.
 
 See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.292 ...aphics[width=\linewidth,left]{step10.png}
+l.303 ...aphics[width=\linewidth,left]{step10.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1504,25 +1508,25 @@ If that doesn't work, type  X <return>  to quit.
 <step10.png, id=56, 734.745pt x 215.80624pt>
 File: step10.png Graphic file (type png)
  <use step10.png>
-Package pdftex.def Info: step10.png used on input line 292.
+Package pdftex.def Info: step10.png used on input line 303.
 (pdftex.def)             Requested size: 230.17241pt x 67.60393pt.
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:293: LaTeX Error: \caption outside float.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:304: LaTeX Error: \caption outside float.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.293  \caption
+l.304  \caption
                 {Figura 17. Compartir informe como PDF}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:293: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:304: Undefined control sequence.
 \caption ... \endcsname \fi \fi \@dblarg {\@tempf 
                                                   \@captype }
-l.293  \caption
+l.304  \caption
                 {Figura 17. Compartir informe como PDF}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1530,10 +1534,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:293: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:304: Undefined control sequence.
 \caption ...e \fi \fi \@dblarg {\@tempf \@captype 
                                                   }
-l.293  \caption
+l.304  \caption
                 {Figura 17. Compartir informe como PDF}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1542,13 +1546,13 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:299: Package xkeyval Error: `left' undefined in families `Gin'.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:310: Package xkeyval Error: `left' undefined in families `Gin'.
 
 See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.299 ...aphics[width=\linewidth,left]{step12.png}
+l.310 ...aphics[width=\linewidth,left]{step12.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1556,25 +1560,25 @@ If that doesn't work, type  X <return>  to quit.
 <step12.png, id=57, 409.53pt x 413.545pt>
 File: step12.png Graphic file (type png)
  <use step12.png>
-Package pdftex.def Info: step12.png used on input line 299.
+Package pdftex.def Info: step12.png used on input line 310.
 (pdftex.def)             Requested size: 230.17241pt x 232.43549pt.
 
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:300: LaTeX Error: \caption outside float.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:311: LaTeX Error: \caption outside float.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.300  \caption
+l.311  \caption
                 {Figura 18. Seleccionar opciones de PDF}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:300: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:311: Undefined control sequence.
 \caption ... \endcsname \fi \fi \@dblarg {\@tempf 
                                                   \@captype }
-l.300  \caption
+l.311  \caption
                 {Figura 18. Seleccionar opciones de PDF}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1582,10 +1586,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:300: Undefined control sequence.
+./cubo informacion GAF - Ing. Jimmy Figueroa A..tex:311: Undefined control sequence.
 \caption ...e \fi \fi \@dblarg {\@tempf \@captype 
                                                   }
-l.300  \caption
+l.311  \caption
                 {Figura 18. Seleccionar opciones de PDF}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1595,22 +1599,22 @@ and I'll forget about whatever was undefined.
 
 File: /Users/jimmyfigueroa/Desktop/CEFA/dvinciworks.pdf Graphic file (type pdf)
 <use /Users/jimmyfigueroa/Desktop/CEFA/dvinciworks.pdf>
-Package pdftex.def Info: /Users/jimmyfigueroa/Desktop/CEFA/dvinciworks.pdf used on input line 304.
+Package pdftex.def Info: /Users/jimmyfigueroa/Desktop/CEFA/dvinciworks.pdf used on input line 315.
 (pdftex.def)             Requested size: 167.53032pt x 216.81pt.
- [5 <./step8.png> <./step9.png> <./step11.png> <./step10.png> <./step12.png>] (/Users/jimmyfigueroa/Desktop/BI-PROCOMER/soluciontableau-gaf-procomer/.texpadtmp/cubo informacion GAF - Ing. Jimmy Figueroa A..aux
+ [5 <./step7.png> <./step8.png> <./step9.png> <./step11.png> <./step10.png> <./step12.png>] (/Users/jimmyfigueroa/Desktop/BI-PROCOMER/soluciontableau-gaf-procomer/.texpadtmp/cubo informacion GAF - Ing. Jimmy Figueroa A..aux
 LaTeX Info: Redefining \. on input line 7.
 LaTeX Info: Redefining \% on input line 7.
 ) ) 
 Here is how much of TeX's memory you used:
- 13531 strings out of 493117
- 263542 string characters out of 6135433
- 323073 words of memory out of 5000000
- 16697 multiletter control sequences out of 15000+600000
+ 13532 strings out of 493117
+ 263550 string characters out of 6135433
+ 325073 words of memory out of 5000000
+ 16698 multiletter control sequences out of 15000+600000
  7839 words of font info for 28 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,8n,56p,902b,966s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,8n,56p,1053b,971s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on "/Users/jimmyfigueroa/Desktop/BI-PROCOMER/soluciontableau-gaf-procomer/.texpadtmp/cubo informacion GAF - Ing. Jimmy Figueroa A..pdf" (5 pages, 2407205 bytes).
+Output written on "/Users/jimmyfigueroa/Desktop/BI-PROCOMER/soluciontableau-gaf-procomer/.texpadtmp/cubo informacion GAF - Ing. Jimmy Figueroa A..pdf" (5 pages, 2408073 bytes).
 PDF statistics:
  84 PDF objects out of 1000 (max. 8388607)
  47 compressed objects within 1 object stream

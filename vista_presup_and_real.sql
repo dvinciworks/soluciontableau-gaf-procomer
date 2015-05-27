@@ -1,4 +1,14 @@
-CREATE VIEW presup_and_real 
+USE [EXACTUS]
+GO
+drop view [dbo].[presup_and_real] 
+/****** Object:  View [dbo].[presup_and_real]    Script Date: 5/26/2015 9:25:52 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE VIEW [dbo].[presup_and_real] 
 AS 
   (SELECT 
           case 
@@ -32,8 +42,14 @@ AS
 			else r.ano_saldo 
 		  end AS ano_saldo, 
           r.saldoinifiscallocal, 
-          r.debitofisclocal, 
-          r.creditofisclocal, 
+          case 
+		    when r.debitofisclocal  is null then 0.0
+			else r.debitofisclocal 
+		  end AS debitofisclocal, 
+          case 
+		    when r.creditofisclocal  is null then 0.0
+			else r.creditofisclocal 
+		  end AS creditofisclocal, 
           r.saldofisclocal, 
           r.saldoinifiscaldolar, 
           r.creditofiscdolar, 
@@ -123,8 +139,14 @@ SELECT
 			else r.ano_saldo 
 		  end AS ano_saldo, 
           r.saldoinifiscallocal, 
-          r.debitofisclocal, 
-          r.creditofisclocal, 
+          case 
+		    when r.debitofisclocal  is null then 0.0
+			else r.debitofisclocal 
+		  end AS debitofisclocal, 
+          case 
+		    when r.creditofisclocal  is null then 0.0
+			else r.creditofisclocal 
+		  end AS creditofisclocal, 
           r.saldofisclocal, 
           r.saldoinifiscaldolar, 
           r.creditofiscdolar, 
@@ -182,3 +204,6 @@ SELECT
 							)
 where r.moneda = 'USD' or r.moneda is null
 )
+GO
+
+

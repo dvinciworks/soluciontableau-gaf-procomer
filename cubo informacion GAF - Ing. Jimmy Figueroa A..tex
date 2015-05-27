@@ -63,7 +63,7 @@ Informe Técnico
 \begin{center}\today\end{center}
 \author{Ing.Jimmy Figueroa}
 \abstract
-El presente documento resume los pasos para la instalación de las vistas de información GAF así como los pasos para su aprovechamiento por parte de los usuarios del Depto. de GAF. Al no disponer del licenciamiento del \verb|TableauSoftware|, la solución ha sido implementada en \verb|Tableu Public| combinándola con la generación de ficheros de Excel desde la misma base de datos del EXACTUS, aplicando algunos pasos manuales necesarios. La duración de dichos pasos es órdenes de magnitud mas eficiente que el escenario actual de los usuarios GAF en el que una \verb|macro de excel| tarda varias horas en ejecutar para generar los datos. Cuando PROCOMER adquiera \emph{Tableau Server y Tableau Desktop} estos pasos no serán necesarios y podrá reconectarse la solución del \verb|Tableau| directamente a la base de datos del EXACTUS.\\
+El presente documento resume los pasos para la instalación de las vistas de información GAF así como los pasos para su aprovechamiento por parte de los usuarios del Depto. de GAF. Al no disponer del licenciamiento del \verb|TableauSoftware|, la solución ha sido implementada en \verb|Tableu Public| combinándola con la generación de ficheros de Excel desde la misma base de datos del EXACTUS, aplicando algunos pasos manuales necesarios para la distribución de activos fijos, ingresos por canon e ingresos por formularios; dado que los citados incisos no son manejados dentro del Exactus. La duración de dichos pasos es órdenes de magnitud mas eficiente que el escenario actual de los usuarios GAF en el que una \verb|macro de excel| tarda varias horas en ejecutar para generar los datos. Cuando PROCOMER adquiera \emph{Tableau Server y Tableau Desktop} estos pasos no serán necesarios y podrá reconectarse la solución del \verb|Tableau| directamente a la base de datos del EXACTUS.\\
 \begin{multicols}{2}
 \section{Instalación}
 Las Vistas de Información GAF requieren que desde la base de datos del EXACTUS se genere 1 fichero \verb|.csv|, para generar los \emph{Presupuestos} y para generar los \emph{importes reales} ejecutados en el periodo.
@@ -95,10 +95,14 @@ Esta sección no le atañe al usuario GAF, pero si al usuario del Depto. de TI. Pa
 	\item Crear directorio \verb|c:\soluciontableau|
 	\item Copiar el fichero \verb|generar_fichero_gaf.bat| al directorio \verb|c:\soluciontableau|
 	\item Editar el fichero y sustituir la instrucción que lee \verb|-S JIMMYFIGUER7A21\SQLEXPRESS2| en cada una de las líneas que inician con el enunciado \verb|bcp| por la instrucción \verb|-S <SERVIDORWINDOWS>\<SERVIDOR-SQL>| tomando dichos valores del entorno de PROCOMER. Hacer lo anterior dejando el resto de las hileras intactas. \newline La tabla \verb|vista_presup_temp| es creada automáticamente desde el procedimiento almacenado \newline \verb|   generar_vista_presupuesto|. \newline De igual manera, la tabla \verb|activosfijos_temp| es creada automáticamente por el procedimiento almacenado: \newline \verb|   cargar_fichero_activos_fijos|. \newline Ambos procedimientos almacenados son invocados desde el programa \verb|generar_fichero_gaf.bat|.
-	\item Copiar los ficheros \verb|.csv| siguientes en el directorio \verb|c:\soluciontableau\|:
+	\item Copiar los ficheros siguientes en el directorio \verb|c:\soluciontableau\|:
 	\newline \verb|     activosfijos.csv|
 	\newline \verb|     canon.csv|
     \newline \verb|     formularios.csv|
+    \newline \verb|     toc.csv|
+    \newline \verb|     saldos_epf.csv|
+    \newline \verb|     *.tde|
+    \newline \verb|     *.twb| ó \verb|*.twbx|
 	\item Conectarse al entorno de comandos \newline \verb|  SQL Server Mgmt Studio|
 	\item Crear cada comando \verb|SQL| y procedimiento almacenado en el siguiente orden:
 	\newline \verb| 1.  crear_tabla_activosfijos_temp.sql|
@@ -124,6 +128,8 @@ Esta sección no le atañe al usuario GAF, pero si al usuario del Depto. de TI. Pa
 En esta sección, el usuario GAF si debe tomar acción. Para actualizarla información del infográfico, los pasos que seguirá el usuario GAF con una periodicidad mensual, semanal o diaria son los siguientes:
 \begin{enumerate}[a)]
 	\item Actualizar el fichero \verb|activosfijos.csv|,
+	\item Actualizar el fichero \verb|canon.csv|,
+	\item Actualizar el fichero \verb|formularios.csv|,
 	\item Generar \verb|fichero_gaf.csv|,
 	\item Refrescar y Publicar infografico con el Tableau Public \verb|informes gaf - tableau| 
 	\item Acceder y compartir el Infográfico desde el navegador de internet.
@@ -189,6 +195,11 @@ Debido a que la \verb|Cuenta Contable 205-007-000-000| correspondiente a activos
  \caption {Figura 7. Formato correcto fichero activosfijos.csv}
 \end{Figure}
 \end{enumerate}
+
+\subsection{Canon y Formularios}
+Existen 2 ficheros adicionales \verb|canon.csv| y \verb|formularios.csv| que el usuario gaf debe llenar y para ello debe seguir los mismos pasos descritos en la sección anterior de \verb|activosfijos.csv|.
+\newline Los cuidados son los mismos y los pasos son los mismos. Únicamente cambia el nombre del fichero ya sea \verb|canon.csv| o \verb|formularios.csv|
+
 
 \subsection{Generar fichero gaf}
 
